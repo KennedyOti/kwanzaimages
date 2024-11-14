@@ -1,0 +1,622 @@
+/* Custom CSS for each section */
+body {
+    scroll-behavior: smooth;
+
+    margin: 0;
+    padding: 0;
+}
+
+/* Default Navbar Styling */
+.navbar {
+    background-color: black; /* Default background color when on top */
+    margin-top: 0;
+    padding-top: 0; /* Ensure no extra padding at the top */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+/* When scrolling down, the navbar will have a background color of rgba(0, 86, 179, 0.5) */
+.scrolled {
+    background-color: rgba(0, 86, 179, 0.5);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: white !important;
+}
+
+.navbar-nav .nav-link {
+    font-size: 1.1rem;
+    color: white !important;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f8f9fa !important;
+    text-decoration: underline;
+}
+
+.hero-section {
+    height: 170vh;
+    background: url("p15.jpg") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+@media (max-width: 920px) {
+    .hero-section {
+        height: 70vh;
+        background: url("p15.jpg") no-repeat center center;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        position: relative;
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero-content {
+    z-index: 2;
+}
+
+/* .about-section, */
+.gallery-section,
+.services-section,
+.testimonials-section,
+.contact-section {
+    padding: 60px 20px;
+}
+
+.services-section,
+.testimonials-section {
+    background-color: #f8f9fa;
+}
+
+.contact-section {
+    background-color: #343a40;
+    color: white;
+}
+
+.footer-section {
+    padding: 20px;
+    text-align: center;
+    background-color: #212529;
+    color: white;
+}
+
+/* Custom styles for smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Rotating logo animation */
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Applying rotation animation to the logo */
+.rotating-logo {
+    animation: rotate 5s linear infinite;
+}
+
+/* Default Styling for Navbar */
+.navbar .container {
+    display: flex;
+    justify-content: space-between; /* Keep logo and nav items spaced apart */
+    align-items: center;
+}
+
+/* For large screens (screens wider than 920px) */
+@media (min-width: 920px) {
+    .navbar .container {
+        justify-content: flex-start; /* Align logo and brand name to the left */
+    }
+    .navbar-nav .nav-item .nav-link {
+        white-space: nowrap; /* Prevents the text from wrapping */
+    }
+
+    /* Align logo and brand name (KWANZA and IMAGES) horizontally */
+    #brand-name {
+        display: flex; /* Use flex to align items in a row */
+        flex-direction: row; /* Align the logo and text side by side */
+        align-items: flex-start; /* Center vertically */
+        text-align: left;
+        margin-left: 0; /* Ensure there's no extra margin for large screens */
+    }
+
+    /* Adjust size and spacing of the brand name */
+    .navbar-brand {
+        font-size: 30px; /* Increase font size for KWANZA */
+        margin-right: 10px; /* Space between KWANZA and IMAGES */
+    }
+
+    /* Adjust styling for IMAGES text */
+    .navbar-text {
+        font-size: 24px;
+        margin: 0;
+        color: white; /* White text for IMAGES */
+    }
+
+    /* Ensure the logo stays at the left side with the brand name */
+    .navbar .container img {
+        margin-right: 15px; /* Space between logo and brand name */
+    }
+}
+
+/* Media Query for iPad and smaller screens (Max width 920px) */
+@media (max-width: 920px) {
+    .navbar .container {
+        justify-content: center; /* Center navbar items */
+    }
+
+    /* Ensure logo is spaced correctly from brand name */
+    .navbar .container img {
+        margin-right: 20px;
+    }
+
+    /* Center brand name in smaller screens */
+    #brand-name {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+    }
+
+    /* Adjust font size for better visibility */
+    .navbar-text {
+        font-size: 22px;
+    }
+}
+
+/* Further adjustment for mobile screens */
+@media (max-width: 480px) {
+    .navbar-text {
+        font-size: 18px;
+    }
+}
+
+/* Default layout for larger screens */
+.about-section .container {
+    padding: 10px 0; /* Adjust padding as needed */
+}
+
+#about #logo1 {
+    width: 300px;
+    height: 300px;
+    margin-top: 0;
+}
+.about-section .row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* For screens with a maximum width of 920px */
+@media (max-width: 920px) {
+    .about-section {
+        display: flex; /* Enable flexbox */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        text-align: center; /* Ensure any text is centered */
+    }
+
+    .about-section .col-md-6 {
+        margin-bottom: 20px; /* Add spacing between sections */
+        width: 100%; /* Make columns full width */
+        display: flex;
+        flex-direction: column; /* Stack content vertically */
+        justify-content: center; /* Center content horizontally */
+        align-items: center; /* Center content vertically */
+        text-align: center; /* Center text */
+    }
+
+    .about-section img {
+        width: 100px; /* Adjust image size */
+        height: 100px; /* Maintain aspect ratio */
+        margin: 0; /* Remove margins that might affect centering */
+    }
+
+    #about {
+        display: flex; /* Enable flexbox */
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center; /* Center horizontally */
+        align-items: center; /* Center vertically */
+        text-align: center; /* Ensure text is centered */
+    }
+
+    #about #logo1 {
+        width: 100px; /* Adjust image size */
+        height: 100px; /* Maintain aspect ratio */
+        margin: 0; /* Remove any unnecessary margins */
+    }
+}
+
+/* Default layout for larger screens */
+.team-section {
+    padding: auto !important;
+}
+
+.team-section .team-img {
+    width: 300px !important; /* Adjust size for team images */
+    height: auto !important; /* Let the height adjust based on the image's aspect ratio */
+    margin: 0 auto !important; /* Ensure the image is centered */
+    object-fit: contain !important; /* Ensure the full image is displayed without cropping */
+}
+
+/* Center text in team section */
+.team-section h4,
+.team-section p {
+    margin: 0 !important;
+    padding-top: 10px !important;
+}
+
+/* Flexbox for horizontal display on large screens */
+.team-section .row {
+    display: flex !important;
+    justify-content: space-evenly !important; /* Reduce space between images */
+    align-items: center !important;
+    flex-wrap: nowrap !important; /* Prevent wrapping on large screens */
+}
+
+/* For smaller screens (below 920px), images will stack */
+@media (max-width: 920px) {
+    .team-section {
+        padding: 0 !important; /* Remove extra padding around the section */
+        margin: 0 !important; /* Remove extra margins */
+    }
+
+    .team-section .row {
+        flex-direction: column !important; /* Stack team members vertically */
+        align-items: center !important; /* Center team members */
+        margin: 0 !important; /* Remove any extra margins */
+        padding: 0 !important; /* Remove padding from the row */
+    }
+
+    .team-section .col-md-4 {
+        padding: 0 !important; /* Remove extra padding */
+        margin: 10px 0 !important; /* Ensure small margin between images */
+        width: 100% !important; /* Ensure the width takes up full space */
+        display: flex;
+        justify-content: center !important; /* Center images horizontally */
+    }
+
+    .team-section .team-img {
+        width: 300px !important; /* Larger image size for small screens */
+        height: auto !important; /* Let the height adjust based on the image's aspect ratio */
+        margin: 0 auto !important; /* Ensure the image is centered */
+        object-fit: contain !important; /* Ensure the full image is displayed without cropping */
+    }
+}
+
+/* gallery section */
+
+/* General styles for the gallery section */
+#gallery {
+    padding-top: 110px;
+}
+
+#gallery-row {
+    display: flex;
+    flex-wrap: wrap; /* Allows images to wrap to the next row */
+    gap: 0; /* No space between images */
+    justify-content: space-between; /* Distribute images evenly across the row */
+}
+
+/* Set each image container to take up one-third of the row (3 per row) */
+.col-4 {
+    width: 33.33%; /* 3 images per row */
+    padding: 0; /* Remove any extra padding */
+}
+
+/* Ensure that all images have a fixed width and height of 250px */
+.gallery-img {
+    width: 250px;
+    height: 250px; /* Fixed height and width for consistent image sizes */
+    object-fit: cover; /* Ensures the image fills the area without distorting */
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for images */
+#gallery-item-1:hover .gallery-img,
+#gallery-item-2:hover .gallery-img,
+#gallery-item-3:hover .gallery-img,
+#gallery-item-4:hover .gallery-img,
+#gallery-item-5:hover .gallery-img,
+#gallery-item-6:hover .gallery-img {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Fade-in effect for the gallery images */
+#gallery-item-1,
+#gallery-item-2,
+#gallery-item-3,
+#gallery-item-4,
+#gallery-item-5,
+#gallery-item-6 {
+    animation: fadeIn 1s ease-out;
+}
+
+#gallery-item-1 {
+    animation-delay: 0.2s;
+}
+
+#gallery-item-2 {
+    animation-delay: 0.4s;
+}
+
+#gallery-item-3 {
+    animation-delay: 0.6s;
+}
+
+#gallery-item-4 {
+    animation-delay: 0.8s;
+}
+
+#gallery-item-5 {
+    animation-delay: 1s;
+}
+
+#gallery-item-6 {
+    animation-delay: 1.2s;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 920px) {
+    #gallery-row {
+        flex-direction: column;
+        gap: 10px; /* Ensure images stack on smaller screens */
+    }
+
+    .col-4 {
+        width: 100%; /* Each image takes full width on smaller screens */
+    }
+
+    .gallery-img {
+        width: 100%;
+        height: auto; /* Adjust the height for smaller screens to maintain aspect ratio */
+    }
+}
+
+/*   contact us */
+#contact {
+    background: url("img5.png") no-repeat center center;
+    background-size: cover;
+    color: white;
+    position: relative;
+}
+
+#contact:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(
+        0,
+        86,
+        179,
+        0.7
+    ); /* Adds a dark overlay for readability */
+    z-index: 1;
+}
+
+#contact .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Gallery Section */
+#gallery {
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.3); /* Dark overlay by default */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+
+#gallery:hover {
+    background-color: rgba(
+        0,
+        0,
+        0,
+        0
+    ); /* No dark overlay on hover (brightens up) */
+}
+
+#gallery .container {
+    position: relative; /* Keeps the content on top of the background */
+}
+
+#gallery-row {
+    transition: opacity 0.3s ease; /* Smooth transition for the opacity change */
+}
+
+#gallery:hover #gallery-row {
+    opacity: 1; /* Images and content are fully visible on hover */
+}
+
+/* Darkening individual images */
+.gallery-img {
+    transition: filter 0.3s ease; /* Smooth transition for image hover effect */
+    filter: brightness(60%); /* Darkens images by 40% initially */
+}
+
+#gallery:hover .gallery-img {
+    filter: brightness(100%); /* Restores full brightness on hover */
+}
+
+/* Scoped loader container */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black; /* Solid black background for loader */
+    z-index: 9999;
+}
+
+/* Reset styles only for the loader */
+.loader-container * {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.loader-container :root {
+    --hue: 223;
+    --bg: hsl(var(--hue), 90%, 95%);
+    --fg: hsl(var(--hue), 90%, 5%);
+    --trans-dur: 0.3s;
+    font-size: calc(16px + (24 - 16) * (100vw - 320px) / (1280 - 320));
+}
+
+.loader-container body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font: 1em/1.5 sans-serif;
+    height: 100vh;
+    transition: background-color var(--trans-dur);
+}
+
+.loader-container .ip {
+    width: 16em;
+    height: 8em;
+}
+
+.loader-container .ip__track {
+    stroke: hsl(var(--hue), 90%, 90%);
+    transition: stroke var(--trans-dur);
+}
+
+.loader-container .ip__worm1,
+.loader-container .ip__worm2 {
+    animation: worm1 2s linear infinite;
+}
+
+.loader-container .ip__worm2 {
+    animation-name: worm2;
+}
+
+/* Dark theme for the loader */
+@media (prefers-color-scheme: dark) {
+    .loader-container :root {
+        --bg: hsl(var(--hue), 90%, 5%);
+        --fg: hsl(var(--hue), 90%, 95%);
+    }
+
+    .loader-container .ip__track {
+        stroke: hsl(var(--hue), 90%, 15%);
+    }
+}
+
+/* Animation */
+@keyframes worm1 {
+    from {
+        stroke-dashoffset: 0;
+    }
+    50% {
+        animation-timing-function: steps(1);
+        stroke-dashoffset: -358;
+    }
+    50.01% {
+        animation-timing-function: linear;
+        stroke-dashoffset: 358;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes worm2 {
+    from {
+        stroke-dashoffset: 358;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    to {
+        stroke-dashoffset: -358;
+    }
+}
+
+/*<!-- CSS for hover and click effects -->*/
+
+.gallery-row {
+    overflow: visible; /* Allow images to overflow their container */
+}
+
+.gallery-item {
+    position: relative;
+}
+
+.gallery-img {
+    transition: transform 0.3s ease-in-out, z-index 0s ease 0.3s; /* Ensure smooth transition and control z-index timing */
+    z-index: 1;
+    cursor: pointer;
+}
+
+.gallery-img:hover {
+    transform: scale(2); /* Increase the size of the image on hover */
+    z-index: 10; /* Bring the hovered image above others */
+    position: relative;
+}
+
+.gallery-img.clicked {
+    transform: scale(
+        1
+    ); /* Display the image at its original size when clicked */
+    z-index: 20; /* Ensure the clicked image is above others */
+}
+
+@media (max-width: 920px) {
+    .kwanza-show-section .row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .kwanza-show-section video {
+        width: 100%;
+    }
+}
