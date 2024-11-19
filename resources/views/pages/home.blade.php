@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
     <!-- Slideshow Section -->
     <section id="slideshow">
@@ -82,7 +81,7 @@
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <img id="logo1" src="logo.jpg" class="img-fluid" alt="About Me">
+                    <img id="logo1" src="{{ asset('assets/images/logo.jpg') }}" class="img-fluid" alt="About Me">
                 </div>
             </div>
         </div>
@@ -292,7 +291,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section"
-        style="padding-top: 110px; background-color: rgba(0, 86, 179, 0.5); background-image: url('p14.jpg'); background-size: cover; background-position: center;">
+        style="padding-top: 110px; background-color: rgba(0, 86, 179, 0.5); background-image: url('{{ asset('assets/images/p14.jpg') }}'); background-size: cover; background-position: center;">
 
         <div class="container">
             <h2 id="contact-header" class="text-center mb-5">Get in Touch</h2>

@@ -7,7 +7,7 @@
     <title>kwanza images</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
 
 </head>
@@ -53,7 +53,7 @@
         <div class="container d-flex justify-content-between align-items-center">
             <!-- Logo with circular corners, shadow, and continuous rotation -->
             <div class="d-flex align-items-center">
-                <img src="logo.jpg" alt="Logo" class="rotating-logo"
+                <img src="{{ asset('assets/images/logo.jpg') }}" alt="Logo" class="rotating-logo"
                     style="width: 80px; height: 80px; margin: 10px; border-radius: 50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
 
                 <!-- Brand name with KWANZA on top and IMAGES below (will be next to logo on large screens) -->
@@ -88,12 +88,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
             </ul>
         </div>
     </nav>
 
 
-
+    @yield('content')
     <!-- Footer Section -->
     <section class="footer-section" style="background-color: #072D4B; padding: 20px 0;">
         <div class="container text-center text-light">
@@ -108,7 +112,8 @@
             <div id="social-container" class="d-flex justify-content-center align-items-center my-3">
                 <!-- Logo -->
                 <a href="#" class="mx-3">
-                    <img src="logo.jpg" alt="Logo" style="height: 40px;" class="img-fluid">
+                    <img src="{{ asset('assets/images/logo.jpg') }}" alt="Logo" style="height: 40px;"
+                        class="img-fluid">
                 </a>
 
                 <!-- Facebook Icon -->
@@ -127,7 +132,7 @@
 
                 <!-- Threads Icon (Custom Image) -->
                 <a href="#" class="mx-3">
-                    <img src="threads.png" alt="Threads" style="height: 24px;">
+                    <img src="{{ asset('assets/images/threads.png') }}" alt="Threads" style="height: 24px;">
                 </a>
                 </a>
 
@@ -142,7 +147,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-    <script src="index.js"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
 </body>
 
 </html>
