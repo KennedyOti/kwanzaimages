@@ -77,6 +77,9 @@
                     <a class="nav-link" href="#about">About Us</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="#about">Kwanza News</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#gallery">Gallery</a>
                 </li>
                 <li class="nav-item">
@@ -90,7 +93,11 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    <a class="nav-link" href="{{ route('register') }}">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('login') }}">Signin</a>
                 </li>
             </ul>
         </div>
@@ -137,7 +144,7 @@
                 </a>
 
             </div>
-            <p>&copy; 2024 Photography by Kwanza Images.</p>
+            <p>&copy; 2024 Kwanza Images, Designed By Dijisoftwares Ict Hub.</p>
         </div>
     </section>
 

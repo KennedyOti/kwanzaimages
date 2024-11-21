@@ -87,66 +87,66 @@
         </div>
 
     </section>
+
     <!-- Our Team Section -->
-    <!-- Our Team Section -->
-    <section id="our-team" class="team-section text-light" style="background-color: black;  padding: 50px 0;">
+    <section id="our-team" class="team-section text-light" style="background-color: black; padding: 50px 0;">
         <div class="container">
             <h1 class="text-center" style="color:deepskyblue;">Our Team</h1>
-            <div class="row">
-                <!-- Team Member 1 -->
-                <div class="col-md-3 text-center" style="margin-bottom: 30px;">
-                    <img src="{{ asset('assets/images/ceo.jpg') }}" alt="Team Member 1" class="img-fluid team-img">
-                    <h4 style="color:deepskyblue;"><i class="fas fa-user-tie"></i>. CEO</h4>
-                    <p>Yabesh Mabea</p>
-                </div>
-                <!-- Team Member 2 director  -->
-                <div class="col-md-3 text-center" style="margin-bottom: 30px;">
-                    <img src="{{ asset('assets/images/director.jpg') }}" alt="Team Member 2" class="img-fluid team-img">
-                    <h4 style="color:deepskyblue;"><i class="fas fa-camera"></i>. Director </h4>
-                    <p>Earnest Nyakiba</p>
-                </div>
-                <!-- Team Member 3 -->
-                <div class="col-md-3 text-center" style="margin-bottom: 30px;">
-                    <img src="{{ asset('assets/images/chiefop.jpg') }}" alt="Team Member 3" class="img-fluid team-img">
-                    <h4 style="color:deepskyblue;"><i class="fas fa-cogs"></i>. Chief Operations </h4>
-                    <p>Akengo Omusale</p>
-                </div>
-                <!-- Team Member 4 -->
-                <div class="col-md-3 text-center" style="margin-bottom: 40px;">
-                    <img src="{{ asset('assets/images/care.jpg') }}" alt="Team Member 4" class="img-fluid team-img">
-                    <h4 style="color:deepskyblue;"><i class="fas fa-headset"></i>. Customer Care </h4>
-                    <p>Billie Ochibo</p>
-                </div>
+            <div class="row" id="team-row">
+                <!-- Dynamically display team members -->
+                @foreach ($teams as $team)
+                    <div class="col-md-3 text-center" style="margin-bottom: 30px;">
+                        <img src="{{ asset('storage/' . $team->image_path) }}" alt="{{ $team->name }}"
+                            class="img-fluid team-img"
+                            style="height: 200px; width: 200px; object-fit: cover; ">
+                        <h4 style="color:deepskyblue;"><i class="fas fa-user-tie"></i> {{ $team->role }}</h4>
+                        <p>{{ $team->name }}</p>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
-
 
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery-section" style="padding-top: 110px;">
         <div class="container">
             <h2 class="text-center mb-5" style="color: deepskyblue;"><b>Gallery</b></h2>
-            <div class="row" id="gallery-row" style="overflow: visible;">
-                <!-- Image containers will be dynamically updated by JavaScript -->
-                <div class="col-4 mb-4 gallery-item">
-                    <img src="{{ asset('assets/images/p10.jpg') }}" class="img-fluid gallery-img" alt="Gallery Image 1">
-                </div>
-                <div class="col-4 mb-4 gallery-item">
-                    <img src="{{ asset('assets/images/p12.jpg') }}" class="img-fluid gallery-img" alt="Gallery Image 2">
-                </div>
-                <div class="col-4 mb-4 gallery-item">
-                    <img src="{{ asset('assets/images/p13.jpg') }}" class="img-fluid gallery-img" alt="Gallery Image 3">
-                </div>
-                <div class="col-4 mb-4 gallery-item">
-                    <img src="{{ asset('assets/images/p14.jpg') }}" class="img-fluid gallery-img" alt="Gallery Image 4">
-                </div>
-                <div class="col-4 mb-4 gallery-item">
-                    <img src="{{ asset('assets/images/p15.jpg') }}" class="img-fluid gallery-img" alt="Gallery Image 5">
-                </div>
-                <div class="col-4 mb-4 gallery-item">
-                    <img src="pa6" class="img-fluid gallery-img" alt="Gallery Image 6">
-                </div>
+            <div class="row" id="gallery-row" style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
+                <!-- Dynamically display images -->
+                @foreach ($images as $image)
+                    <!-- Image containers will be dynamically updated by JavaScript -->
+                    <div class="col-4 mb-4 gallery-item" style="flex: 0 0 32%; margin: 0 1%; padding: 0;">
+                        <img src="p10.jpg" class="img-fluid gallery-img" alt="Gallery Image 1"
+                            style="width: 100%; height: auto;">
+                    </div>
+                @endforeach
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="text-center mt-4">
+                <button class="btn btn-primary" id="prev-btn">Back</button>
+                <button class="btn btn-primary" id="next-btn">Next</button>
+            </div>
+        </div>
+
+    </section>
+    <!-- Services Section -->
+    <section id="services" class="services-section"
+        style="padding-top: 110px; color: white; background-color: #072D4B;">
+        <div class="container">
+            <h2 class="text-center mb-5">Services</h2>
+            <div class="row" id="services-row">
+                <!-- Dynamically display services -->
+                @foreach ($services as $service)
+                    <div class="col-md-4 text-center mb-4">
+                        <img src="{{ asset($service->image_path) }}" alt="{{ $service->title }}"
+                            style="height: 400px; border-radius: 25px; width: 100%; object-fit: cover;" class="mb-3" />
+
+                        <h3>{{ $service->title }}</h3>
+                        <p>{{ $service->description }}</p>
+                    </div>
+                @endforeach
             </div>
 
             <!-- Navigation Buttons -->
@@ -158,57 +158,6 @@
     </section>
 
 
-    <!-- Services Section -->
-    <section id="services" class="services-section"
-        style="padding-top: 110px; color: white; background-color: #072D4B;">
-        <div class="container">
-            <h2 class="text-center mb-5">Services</h2>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/images/wed.jpg') }}" alt="Wedding Photography"
-                        style="height: 400px; width: 100%; object-fit: cover;" class="mb-3" />
-                    <h3>Wedding Photography</h3>
-                    <p>Documenting your love story with timeless images that capture the elegance, joy, and emotion of
-                        your special day.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/images/out.jpg') }}" alt="Portrait Photography"
-                        style="height: 400px; width: 100%; object-fit: cover;" class="mb-3" />
-                    <h3>Outdoor Photography</h3>
-                    <p>Capturing stunning portraits in natural settings, bringing your story to life with the beauty of
-                        the outdoors.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/images/trad.jpg') }}" alt="Event Photography"
-                        style="height: 400px; width: 100%; object-fit: cover;" class="mb-3" />
-                    <h3>Traditional Photography</h3>
-                    <p>Capturing timeless moments with classic techniques and attention to detail for all types of
-                        events.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/images/stud.jpg') }}" alt="Event Photography"
-                        style="height: 400px; width: 100%; object-fit: cover;" class="mb-3" />
-                    <h3>Studio Photography</h3>
-                    <p>Expertly crafted portraits and commercial shoots with controlled lighting and personalized
-                        setups.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/images/grad.jpg') }}" alt="Event Photography"
-                        style="height: 400px; width: 100%; object-fit: cover;" class="mb-3" />
-                    <h3>Graduation Photography</h3>
-                    <p>Capturing the pride and joy of your academic achievements with timeless graduation portraits and
-                        ceremony shots.</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="{{ asset('assets/images/birth.jpg') }}" alt="Event Photography"
-                        style="height: 400px; width: 100%; object-fit: cover;" class="mb-3" />
-                    <h3>Birthday Photography</h3>
-                    <p>Preserving the fun and excitement of your special day with vibrant and memorable birthday photos.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Mission, Vision Section -->
     <section class="container py-5 bg-dark text-light custom-layout" id="about-us"

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
+use App\Models\Gallery;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -12,7 +15,13 @@ class HomeController extends Controller
     public function index()
     {
         //Home
-        return view('pages.home');
+
+        // Fetch all gallery images
+        $images = Gallery::all(); // Retrieves all images from the Gallery table
+        $services = Service::all(); // Retrieves all services from the Gallery table
+        $teams = Team::all(); // Fetch all team members
+        // Pass the images to the home view
+        return view('pages.home', compact('images', 'services', 'teams'));
     }
 
     /**

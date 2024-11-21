@@ -40,7 +40,7 @@
         <!-- Sidebar -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
 
-            <a href="index3.html" class="brand-link">
+            <a href="{{ route('dashboard') }}" class="brand-link">
                 {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> --}}
                 <span class="brand-text font-weight-light"></span>
             </a>
@@ -49,7 +49,7 @@
                 <div class="sidebar-logo">
                     <!-- Logo Header -->
                     <div class="logo-header" data-background-color="dark">
-                        <a href="index.html" class="logo">
+                        <a href="{{ route('dashboard') }}" class="logo">
                             <img src="{{ asset('assets/images/logo.jpg') }}" alt="navbar brand" class="navbar-brand"
                                 height="50" />
                         </a>
@@ -71,7 +71,8 @@
                     <div class="sidebar-content">
                         <ul class="nav nav-secondary">
                             <li class="nav-item active">
-                                <a data-bs-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                                <a data-bs-toggle="collapse" href="{{ route('dashboard') }}" class="collapsed"
+                                    aria-expanded="false">
                                     <i class="fas fa-home"></i>
                                     <p>Dashboard</p>
                                     <span class="caret"></span>
@@ -102,15 +103,34 @@
                             <li class="nav-item">
                                 <a data-bs-toggle="collapse" href="#sidebarLayouts">
                                     <i class="fas fa-th-list"></i>
+                                    <p>Teams</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="sidebarLayouts">
+                                    <ul class="nav nav-collapse">
+                                        <li>
+                                            <a href="{{ route('teams.index') }}">
+                                                <span class="sub-item">Manage Teams</span>
+                                            </a>
+
+
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                                    <i class="fas fa-th-list"></i>
                                     <p>Gallery</p>
                                     <span class="caret"></span>
                                 </a>
                                 <div class="collapse" id="sidebarLayouts">
                                     <ul class="nav nav-collapse">
                                         <li>
-                                            <a href="sidebar-style-2.html">
+                                            <a href="{{ route('gallery.index') }}">
                                                 <span class="sub-item">Manage Gallery</span>
                                             </a>
+
                                         </li>
                                     </ul>
                                 </div>
@@ -124,7 +144,7 @@
                                 <div class="collapse" id="forms">
                                     <ul class="nav nav-collapse">
                                         <li>
-                                            <a href="forms/forms.html">
+                                            <a href="{{ route('services.index') }}">
                                                 <span class="sub-item">Manage Services</span>
                                             </a>
                                         </li>
@@ -160,7 +180,7 @@
                                                 <span class="sub-item">Manage Blogs</span>
                                             </a>
                                         </li>
-                                        
+
                                     </ul>
                                 </div>
                             </li>
@@ -185,9 +205,9 @@
                                     </ul>
                                 </div>
                             </li>
-                            
+
                             <li class="nav-item">
-                                
+
                                 <div class="collapse" id="submenu">
                                     <ul class="nav nav-collapse">
                                         <li>
@@ -582,7 +602,7 @@
             </div>
 
             <!-- Custom template | don't include it in your project! -->
-            
+
             <!-- End Custom template -->
     </div>
     <!--   Core JS Files   -->
