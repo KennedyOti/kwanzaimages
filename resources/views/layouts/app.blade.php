@@ -58,7 +58,7 @@
 
                 <!-- Brand name with KWANZA on top and IMAGES below (will be next to logo on large screens) -->
                 <div class="d-flex flex-column text-center" id="brand-name">
-                    <a class="navbar-brand" href="#" style="margin: 0; line-height: 1;">KWANZA</a>
+                    <a class="navbar-brand" href="{{ route('home') }}" style="margin: 0; line-height: 1;">KWANZA</a>
                     <p class="navbar-text"
                         style="margin: 0; color: rgb(103, 146, 210); font-family: 'Vladimir Script', cursive; font-size: 24px; line-height: 1;">
                         IMAGES</p>
@@ -77,7 +77,7 @@
                     <a class="nav-link" href="#about">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#about">Kwanza News</a>
+                    <a class="nav-link" href="{{ route('blogs.index') }}">Kwanza News</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#gallery">Gallery</a>

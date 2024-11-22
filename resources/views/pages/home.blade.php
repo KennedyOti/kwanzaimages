@@ -22,6 +22,10 @@
                         <h1 class="fs-1">Preserving Memories</h1>
                         <h2 class="fs-2" style="color: cornflowerblue;">One Shot at a Time</h2>
                         <p class="lead">At KWANZA IMAGES, we believe every picture tells a story.</p>
+                        <!-- Book Session Button -->
+                        <a href="#book-session" class="btn btn-primary btn-lg mt-4"
+                            style="background-color: cornflowerblue; color: white; border-radius: 50px; padding: 12px 30px;">Book
+                            a Session</a>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -31,6 +35,10 @@
                         <h5 class="fs-5">Your Story in Focus</h5>
                         <h1 class="fs-1">Timeless Photography</h1>
                         <h2 class="fs-3" style="color: cornflowerblue;">From Moments to Masterpieces</h2>
+                        <!-- Book Session Button -->
+                        <a href="#book-session" class="btn btn-primary btn-lg mt-4"
+                            style="background-color: cornflowerblue; color: white; border-radius: 50px; padding: 12px 30px;">Book
+                            a Session</a>
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -42,6 +50,10 @@
                         <h2 class="fs-3" style="color: cornflowerblue;">Emotion, Captured Perfectly</h2>
                         <p class="lead">Our passion for photography allows us to bring out the best in every moment.
                         </p>
+                        <!-- Book Session Button -->
+                        <a href="#book-session" class="btn btn-primary btn-lg mt-4"
+                            style="background-color: cornflowerblue; color: white; border-radius: 50px; padding: 12px 30px;">Book
+                            a Session</a>
                     </div>
                 </div>
             </div>
@@ -97,8 +109,7 @@
                 @foreach ($teams as $team)
                     <div class="col-md-3 text-center" style="margin-bottom: 30px;">
                         <img src="{{ asset('storage/' . $team->image_path) }}" alt="{{ $team->name }}"
-                            class="img-fluid team-img"
-                            style="height: 200px; width: 200px; object-fit: cover; ">
+                            class="img-fluid team-img" style="height: 200px; width: 200px; object-fit: cover; ">
                         <h4 style="color:deepskyblue;"><i class="fas fa-user-tie"></i> {{ $team->role }}</h4>
                         <p>{{ $team->name }}</p>
                     </div>
@@ -211,32 +222,110 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section bg-dark text-light" style="padding-top: 110px;">
+    <!-- book session form -->
+    <section id="book-session" class="py-5"
+        style="background-color: #f8f9fa; background-image: url({{ asset('assets/images/p8.jpg') }}); background-size: cover; background-position: center; background-repeat: no-repeat;">
         <div class="container">
-            <h2 class="text-center mb-5">Testimonials</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <blockquote class="blockquote">
-                        <p>"The best photographer we’ve ever worked with! Highly recommended."</p>
-                        <footer class="blockquote-footer">john</footer>
-                    </blockquote>
+            <div class="row justify-content-center">
+                <div class="col-lg-6 text-center">
+                    <h2 class="mb-4"
+                        style="font-weight: 700; font-family: 'Broadway', sans-serif; color: white; padding-top:80px;">Book
+                        a Session</h2>
+                    <p class="text-muted mb-5 text-white" style="color: white !important;">We capture your most precious
+                        moments. Fill in the form to book a session with us!</p>
                 </div>
-                <div class="col-md-4">
-                    <blockquote class="blockquote">
-                        <p>"Incredible shots! Thank you for making our wedding so memorable."</p>
-                        <footer class="blockquote-footer">john</footer>
-                    </blockquote>
-                </div>
-                <div class="col-md-4">
-                    <blockquote class="blockquote">
-                        <p>"Professional and friendly service, and the photos are just stunning!"</p>
-                        <footer class="blockquote-footer">john</footer>
-                    </blockquote>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form class="p-4 bg-white rounded shadow-lg needs-validation text-center"
+                        style="background-color: rgba(255, 255, 255, 0.7);" novalidate>
+                        <!-- Full Names -->
+                        <div class="form-group">
+                            <label for="fullNames" class="d-block"
+                                style="font-family: 'Cascadier Code Light', sans-serif;">Full Names</label>
+                            <input type="text" class="form-control form-control-lg text-center" id="fullNames"
+                                placeholder="Enter full names" style="font-family: 'Cascadier Code Light', sans-serif;"
+                                required>
+                            <div class="invalid-feedback text-left">
+                                Please enter your full names.
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email" class="d-block"
+                                style="font-family: 'Cascadier Code Light', sans-serif;">Email</label>
+                            <input type="email" class="form-control form-control-lg text-center" id="email"
+                                placeholder="Enter email" style="font-family: 'Cascadier Code Light', sans-serif;"
+                                required>
+                            <div class="invalid-feedback text-left">
+                                Please enter a valid email.
+                            </div>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="form-group">
+                            <label for="phone" class="d-block"
+                                style="font-family: 'Cascadier Code Light', sans-serif;">Phone</label>
+                            <input type="tel" class="form-control form-control-lg text-center" id="phone"
+                                placeholder="Enter phone number" style="font-family: 'Cascadier Code Light', sans-serif;"
+                                required>
+                            <div class="invalid-feedback text-left">
+                                Please enter a valid phone number.
+                            </div>
+                        </div>
+
+                        <!-- Service -->
+                        <div class="form-group">
+                            <label for="service" class="d-block"
+                                style="font-family: 'Cascadier Code Light', sans-serif;">Service</label>
+                            <select class="form-control form-control-lg text-center" id="service"
+                                style="font-family: 'Cascadier Code Light', sans-serif;" required>
+                                <option value="">Choose a service...</option>
+                                <option value="Wedding">Wedding</option>
+                                <option value="Outdoor">Outdoor</option>
+                                <option value="Traditional">Traditional</option>
+                                <option value="Studio">Studio</option>
+                                <option value="Graduation">Graduation</option>
+                            </select>
+                            <div class="invalid-feedback text-left">
+                                Please select a service.
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="form-group">
+                            <label for="location" class="d-block"
+                                style="font-family: 'Cascadier Code Light', sans-serif;">Location</label>
+                            <input type="text" class="form-control form-control-lg text-center" id="location"
+                                placeholder="Enter location" style="font-family: 'Cascadier Code Light', sans-serif;"
+                                required>
+                            <div class="invalid-feedback text-left">
+                                Please enter the location.
+                            </div>
+                        </div>
+
+                        <!-- Date -->
+                        <div class="form-group">
+                            <label for="date" class="d-block"
+                                style="font-family: 'Cascadier Code Light', sans-serif;">Date</label>
+                            <input type="datetime-local" class="form-control form-control-lg text-center" id="date"
+                                required>
+                            <div class="invalid-feedback text-left">
+                                Please choose a date.
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-secondary btn-lg mt-4">Submit</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section"
