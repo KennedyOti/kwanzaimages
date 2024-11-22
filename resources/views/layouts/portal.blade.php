@@ -184,6 +184,24 @@
                                     </ul>
                                 </div>
                             </li>
+
+                            <li class="nav-item">
+                                <a data-bs-toggle="collapse" href="#maps">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <p>Branches</p>
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="collapse" id="maps">
+                                    <ul class="nav nav-collapse">
+                                        <li>
+                                            <a href="{{ route('branches.index') }}">
+                                                <span class="sub-item">Manage Branches</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
                             <li class="nav-item">
                                 <a data-bs-toggle="collapse" href="#charts">
                                     <i class="far fa-chart-bar"></i>
@@ -193,7 +211,7 @@
                                 <div class="collapse" id="charts">
                                     <ul class="nav nav-collapse">
                                         <li>
-                                            <a href="charts/charts.html">
+                                            <a href="{{ route('sales.index') }}">
                                                 <span class="sub-item">Record Sales</span>
                                             </a>
                                         </li>

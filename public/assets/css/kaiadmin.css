@@ -6911,3 +6911,25 @@ body {
     font-size: 18px !important; } }
 
 /*# sourceMappingURL=kaiadmin.css.map */
+
+/*Sales CSS*/
+.card-header {
+  font-weight: bold;
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.btn-primary {
+  background-color: deepskyblue;
+  border-color: deepskyblue;
+}
+
+.btn-primary:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 255, 0.05);
+}
+

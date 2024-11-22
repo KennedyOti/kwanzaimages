@@ -2,11 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SalesController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ManageBranchController;
+use App\Http\Controllers\TeamsController;   // Import TeamsController
 use App\Http\Controllers\GalleryController; // Import GalleryController
 use App\Http\Controllers\ServicesController; // Import ServicesController
-use App\Http\Controllers\TeamsController;   // Import TeamsController
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -34,6 +36,19 @@ Route::middleware('auth')->group(function () {
     Route::post('/teams', [TeamsController::class, 'store'])->name('teams.store');
     Route::put('/teams/{id}', [TeamsController::class, 'update'])->name('teams.update');
     Route::delete('/teams/{id}', [TeamsController::class, 'destroy'])->name('teams.destroy');
+
+    // Branch Routes
+
+    Route::get('/branches', [ManageBranchController::class, 'index'])->name('branches.index');
+    Route::post('/branches', [ManageBranchController::class, 'store'])->name('branches.store');
+    Route::put('/branches/{id}', [ManageBranchController::class, 'update'])->name('branches.update');
+    Route::delete('/branches/{id}', [ManageBranchController::class, 'destroy'])->name('branches.destroy');
+
+    // Sales Routes
+
+    Route::get('/sales', [SalesController::class, 'index'])->name('sales.index');
+    Route::post('/sales', [SalesController::class, 'store'])->name('sales.store');
+    Route::delete('/sales/{id}', [SalesController::class, 'destroy'])->name('sales.destroy');
 });
 
 // Include Authentication Routes

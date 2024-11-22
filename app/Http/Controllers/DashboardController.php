@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Sale;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -12,7 +14,9 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        return view('portal.dashboard');
+        $userCount = User::count(); // Get the total number of users
+        $totalSales = Sale::sum('amount'); // Sum up the sales amounts from the Sale table
+        return view('portal.dashboard', compact('userCount', 'totalSales'));
     }
 
     /**

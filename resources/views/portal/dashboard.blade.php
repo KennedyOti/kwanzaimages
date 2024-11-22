@@ -26,9 +26,11 @@
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Users</p>
-                                    <h4 class="card-title">1,294</h4>
+                                    <h4 class="card-title">{{ number_format($userCount) }}</h4>
+                                    <!-- Display the user count -->
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -63,10 +65,11 @@
                             </div>
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
-                                    <p class="card-category">Sales</p>
-                                    <h4 class="card-title">$ 1,345</h4>
+                                    <p class="card-category">Total Sales</p>
+                                    <h4 class="card-title">${{ number_format($totalSales, 2) }}</h4> <!-- Display total sales dynamically -->
                                 </div>
                             </div>
+                            
                         </div>
                     </div>
                 </div>
