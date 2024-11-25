@@ -29,12 +29,21 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/users', [UsersController::class, 'index'])->name('user.index');
 
-    // Manage Bookings Routes (for admins)
-    Route::get('/manage-bookings', [ManageBookingsController::class, 'index'])->name('managebookings.index'); // View all bookings
-    Route::get('/manage-booking/{id}/edit', [ManageBookingsController::class, 'edit'])->name('managebookings.edit'); // Edit booking
-    Route::put('/manage-booking/{id}', [ManageBookingsController::class, 'update'])->name('managebookings.update'); // Update booking
-    Route::delete('/manage-booking/{id}', [ManageBookingsController::class, 'destroy'])->name('managebookings.destroy'); // Delete booking
-    Route::post('/manage-booking/{id}/confirm', [ManageBookingsController::class, 'confirm'])->name('managebookings.confirm'); // Confirm booking
+    // Manage Bookings Routes (for admins and employees)
+    Route::middleware('checkrole:admin')->group(function () {
+        Route::get('/manage-bookings', [ManageBookingsController::class, 'index'])->name('managebookings.index'); // View all bookings
+        Route::get('/manage-booking/{id}/edit', [ManageBookingsController::class, 'edit'])->name('managebookings.edit'); // Edit booking
+        Route::put('/manage-booking/{id}', [ManageBookingsController::class, 'update'])->name('managebookings.update'); // Update booking
+        Route::delete('/manage-booking/{id}', [ManageBookingsController::class, 'destroy'])->name('managebookings.destroy'); // Delete booking
+        Route::post('/manage-booking/{id}/confirm', [ManageBookingsController::class, 'confirm'])->name('managebookings.confirm'); // Confirm booking
+    });
+
+    // Employee Routes
+    Route::middleware('checkrole:admin,employee')->group(function () {
+        Route::get('/manage-bookings', [ManageBookingsController::class, 'index'])->name('managebookings.index'); // View all bookings
+        Route::get('/record-sale', [RecordSalesController::class, 'create'])->name('sales.create');
+        Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store');
+    });
 
     // Manage Blogs Routes
     Route::get('/manageblogs', [ManageBlogController::class, 'index'])->name('manageblog.index');
@@ -45,35 +54,53 @@ Route::middleware('auth')->group(function () {
     Route::delete('/manageblog/{id}', [ManageBlogController::class, 'destroy'])->name('manageblog.destroy');
 
     // Gallery Routes
-    Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
-    Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
-    Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    Route::middleware('checkrole:admin,employee')->group(function () {
+        Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery.index');
+        Route::post('/gallery', [GalleryController::class, 'store'])->name('gallery.store');
+        Route::delete('/gallery/{id}', [GalleryController::class, 'destroy'])->name('gallery.destroy');
+    });
 
     // Services Routes
-    Route::get('/services', [ServicesController::class, 'index'])->name('services.index');
-    Route::post('/services', [ServicesController::class, 'store'])->name('services.store');
-    Route::put('/services/{id}', [ServicesController::class, 'update'])->name('services.update');
-    Route::delete('/services/{id}', [ServicesController::class, 'destroy'])->name('services.destroy');
+    Route::middleware('checkrole:admin')->group(function () {
+        Route::get('/services', [ServicesController::class, 'index'])->name('services.index');
+        Route::post('/services', [ServicesController::class, 'store'])->name('services.store');
+        Route::put('/services/{id}', [ServicesController::class, 'update'])->name('services.update');
+        Route::delete('/services/{id}', [ServicesController::class, 'destroy'])->name('services.destroy');
+    });
 
     // Teams Routes
-    Route::get('/teams', [TeamsController::class, 'index'])->name('teams.index');
-    Route::post('/teams', [TeamsController::class, 'store'])->name('teams.store');
-    Route::put('/teams/{id}', [TeamsController::class, 'update'])->name('teams.update');
-    Route::delete('/teams/{id}', [TeamsController::class, 'destroy'])->name('teams.destroy');
+    Route::middleware('checkrole:admin')->group(function () {
+        Route::get('/teams', [TeamsController::class, 'index'])->name('teams.index');
+        Route::post('/teams', [TeamsController::class, 'store'])->name('teams.store');
+        Route::put('/teams/{id}', [TeamsController::class, 'update'])->name('teams.update');
+        Route::delete('/teams/{id}', [TeamsController::class, 'destroy'])->name('teams.destroy');
+    });
 
     // Branch Routes
-    Route::get('/branches', [ManageBranchController::class, 'index'])->name('branches.index');
-    Route::post('/branches', [ManageBranchController::class, 'store'])->name('branches.store');
-    Route::put('/branches/{id}', [ManageBranchController::class, 'update'])->name('branches.update');
-    Route::delete('/branches/{id}', [ManageBranchController::class, 'destroy'])->name('branches.destroy');
+    Route::middleware('checkrole:admin')->group(function () {
+        Route::get('/branches', [ManageBranchController::class, 'index'])->name('branches.index');
+        Route::post('/branches', [ManageBranchController::class, 'store'])->name('branches.store');
+        Route::put('/branches/{id}', [ManageBranchController::class, 'update'])->name('branches.update');
+        Route::delete('/branches/{id}', [ManageBranchController::class, 'destroy'])->name('branches.destroy');
+    });
 
     // Sales Routes
-    Route::get('/manage-sales', [ManageSalesController::class, 'index'])->name('sales.index'); // View all sales
-    Route::get('/manage-sale/{id}/edit', [ManageSalesController::class, 'edit'])->name('sales.edit'); // Edit sale
-    Route::put('/manage-sale/{id}', [ManageSalesController::class, 'update'])->name('sales.update'); // Update sale
-    Route::delete('/manage-sale/{id}', [ManageSalesController::class, 'destroy'])->name('sales.destroy'); // Delete sale
-    Route::get('/record-sale', [RecordSalesController::class, 'create'])->name('sales.create'); // Record a new sale
-    Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store'); // Store sale
+    Route::middleware('checkrole:admin')->group(function () {
+        Route::get('/manage-sales', [ManageSalesController::class, 'index'])->name('sales.index');
+        Route::get('/manage-sale/{id}/edit', [ManageSalesController::class, 'edit'])->name('sales.edit');
+        Route::put('/manage-sale/{id}', [ManageSalesController::class, 'update'])->name('sales.update');
+        Route::delete('/manage-sale/{id}', [ManageSalesController::class, 'destroy'])->name('sales.destroy');
+        Route::get('/record-sale', [RecordSalesController::class, 'create'])->name('sales.create');
+        Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store');
+    });
+
+    // Active Employee Routes
+    Route::middleware('checkrole:employee')->group(function () {
+        Route::get('/record-sale', [RecordSalesController::class, 'create'])->name('sales.create');
+        Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store');
+        Route::get('/manage-bookings', [ManageBookingsController::class, 'index'])->name('managebookings.index'); // View all bookings
+        Route::post('/manage-booking/{id}/confirm', [ManageBookingsController::class, 'confirm'])->name('managebookings.confirm'); // Confirm booking
+    });
 
     require_once 'profile.php';
 });

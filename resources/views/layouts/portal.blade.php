@@ -87,146 +87,223 @@
                                 </span>
                                 <h4 class="text-section">Features</h4>
                             </li>
-                            <li class="nav-item">
-                                <a data-bs-toggle="collapse" href="#base">
-                                    <i class="fas fa-layer-group"></i>
-                                    <p>Users</p>
-                                    <span class="caret"></span>
-                                </a>
-                                <div class="collapse" id="base">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="{{ route('user.index') }}">
-                                                <span class="sub-item">Manage Users</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                                    <i class="fas fa-th-list"></i>
-                                    <p>Teams</p>
-                                    <span class="caret"></span>
-                                </a>
-                                <div class="collapse" id="sidebarLayouts">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="{{ route('teams.index') }}">
-                                                <span class="sub-item">Manage Teams</span>
-                                            </a>
+                            @switch(Auth::user()->role)
+                                @case('admin')
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#base">
+                                            <i class="fas fa-layer-group"></i>
+                                            <p>Users</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="base">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('user.index') }}">
+                                                        <span class="sub-item">Manage Users</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                                            <i class="fas fa-th-list"></i>
+                                            <p>Teams</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="sidebarLayouts">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('teams.index') }}">
+                                                        <span class="sub-item">Manage Teams</span>
+                                                    </a>
 
 
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                                    <i class="fas fa-th-list"></i>
-                                    <p>Gallery</p>
-                                    <span class="caret"></span>
-                                </a>
-                                <div class="collapse" id="sidebarLayouts">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="{{ route('gallery.index') }}">
-                                                <span class="sub-item">Manage Gallery</span>
-                                            </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                                            <i class="fas fa-th-list"></i>
+                                            <p>Gallery</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="sidebarLayouts">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('gallery.index') }}">
+                                                        <span class="sub-item">Manage Gallery</span>
+                                                    </a>
 
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a data-bs-toggle="collapse" href="#forms">
-                                    <i class="fas fa-pen-square"></i>
-                                    <p>Services</p>
-                                    <span class="caret"></span>
-                                </a>
-                                <div class="collapse" id="forms">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="{{ route('services.index') }}">
-                                                <span class="sub-item">Manage Services</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a data-bs-toggle="collapse" href="#tables">
-                                    <i class="fas fa-table"></i>
-                                    <p>Bookings</p>
-                                    <span class="caret"></span>
-                                </a>
-                                <div class="collapse" id="tables">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="{{ route('managebookings.index') }}">
-                                                <span class="sub-item">Manage Bookings</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a data-bs-toggle="collapse" href="#maps">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <p>Blogs</p>
-                                    <span class="caret"></span>
-                                </a>
-                                <div class="collapse" id="maps">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="{{ route('manageblog.index') }}">
-                                                <span class="sub-item">Manage Blogs</span>
-                                            </a>
-                                        </li>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#forms">
+                                            <i class="fas fa-pen-square"></i>
+                                            <p>Services</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="forms">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('services.index') }}">
+                                                        <span class="sub-item">Manage Services</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#tables">
+                                            <i class="fas fa-table"></i>
+                                            <p>Bookings</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="tables">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('managebookings.index') }}">
+                                                        <span class="sub-item">Manage Bookings</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#maps">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <p>Blogs</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="maps">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('manageblog.index') }}">
+                                                        <span class="sub-item">Manage Blogs</span>
+                                                    </a>
+                                                </li>
 
-                                    </ul>
-                                </div>
-                            </li>
+                                            </ul>
+                                        </div>
+                                    </li>
 
-                            <li class="nav-item">
-                                <a data-bs-toggle="collapse" href="#maps">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <p>Branches</p>
-                                    <span class="caret"></span>
-                                </a>
-                                <div class="collapse" id="maps">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="{{ route('branches.index') }}">
-                                                <span class="sub-item">Manage Branches</span>
-                                            </a>
-                                        </li>
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#maps">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <p>Branches</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="maps">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('branches.index') }}">
+                                                        <span class="sub-item">Manage Branches</span>
+                                                    </a>
+                                                </li>
 
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a data-bs-toggle="collapse" href="#charts">
-                                    <i class="far fa-chart-bar"></i>
-                                    <p>Sales</p>
-                                    <span class="caret"></span>
-                                </a>
-                                <div class="collapse" id="charts">
-                                    <ul class="nav nav-collapse">
-                                        <li>
-                                            <a href="{{ route('sales.create') }}">
-                                                <span class="sub-item">Record Sales</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ route('sales.index') }}">
-                                                <span class="sub-item">Manage Sales</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#charts">
+                                            <i class="far fa-chart-bar"></i>
+                                            <p>Sales</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="charts">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('sales.create') }}">
+                                                        <span class="sub-item">Record Sales</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('sales.index') }}">
+                                                        <span class="sub-item">Manage Sales</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                @break
 
+                                @case('employee')
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#charts">
+                                            <i class="far fa-chart-bar"></i>
+                                            <p>Sales</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="charts">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('sales.create') }}">
+                                                        <span class="sub-item">Record Sales</span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#maps">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            <p>Blogs</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="maps">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('manageblog.index') }}">
+                                                        <span class="sub-item">Manage Blogs</span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                                            <i class="fas fa-th-list"></i>
+                                            <p>Gallery</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="sidebarLayouts">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('gallery.index') }}">
+                                                        <span class="sub-item">Manage Gallery</span>
+                                                    </a>
+
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a data-bs-toggle="collapse" href="#tables">
+                                            <i class="fas fa-table"></i>
+                                            <p>Bookings</p>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="tables">
+                                            <ul class="nav nav-collapse">
+                                                <li>
+                                                    <a href="{{ route('managebookings.index') }}">
+                                                        <span class="sub-item">Manage Bookings</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    @break
+
+                                    @default
+                                @endswitch
                             <li class="nav-item">
 
                                 <div class="collapse" id="submenu">
@@ -501,8 +578,8 @@
                                             <li>
                                                 <div class="dropdown-divider"></div>
                                                 <!---
-                                                <a class="dropdown-item" href="#">My Profile</a>
-                                                <a class="dropdown-item" href="#">My Balance</a>--->
+                                                                    <a class="dropdown-item" href="#">My Profile</a>
+                                                                    <a class="dropdown-item" href="#">My Balance</a>--->
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item"
                                                     href="{{ route('profile.edit', Auth::user()->id) }}">Account
