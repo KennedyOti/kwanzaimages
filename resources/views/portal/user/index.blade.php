@@ -7,7 +7,7 @@
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th>Profile Picture</th>
@@ -39,6 +39,10 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <!-- Pagination Links -->
+                        <div class="d-flex justify-content-center mt-3">
+                            {{ $users->links('pagination::bootstrap-4') }}
+                        </div>
                     </div>
                 </div>
             </div>

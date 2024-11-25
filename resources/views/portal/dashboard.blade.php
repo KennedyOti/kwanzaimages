@@ -46,8 +46,8 @@
                             </div>
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
-                                    <p class="card-category">Gallery</p>
-                                    <h4 class="card-title">1303</h4>
+                                    <p class="card-category">Confirmed Bookings</p>
+                                    <h4 class="card-title">{{ number_format($confirmed_bookingsCount) }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Total Sales</p>
-                                    <h4 class="card-title">{{ number_format($totalSales, 2) }}</h4>
+                                    <h4 class="card-title">KSH: {{ number_format($totalSales, 2) }}</h4>
                                     <!-- Display total sales dynamically -->
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Bookings</p>
-                                    <h4 class="card-title">576</h4>
+                                    <h4 class="card-title">{{ number_format($bookingsCount) }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -106,8 +106,8 @@
                             </div>
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
-                                    <p class="card-category">EG-B-Sales</p>
-                                    <h4 class="card-title">{{ number_format($userCount) }}</h4>
+                                    <p class="card-category">Egerton Branch Sales</p>
+                                    <h4 class="card-title">KSH: {{ number_format($egertonSales, 2) }}</h4>
                                     <!-- Display the user count -->
                                 </div>
                             </div>
@@ -127,8 +127,8 @@
                             </div>
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
-                                    <p class="card-category">NJ-B-Sales</p>
-                                    <h4 class="card-title">1303</h4>
+                                    <p class="card-category">NJoro Branch Sales</p>
+                                    <h4 class="card-title">KSH: {{ number_format($njoroSales, 2) }}</h4>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Daily Sales</p>
-                                    <h4 class="card-title">{{ number_format($totalSales, 2) }}</h4>
+                                    <h4 class="card-title">KSH: {{ number_format($dailySales, 2) }}</h4>
                                     <!-- Display total sales dynamically -->
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                             <div class="col col-stats ms-3 ms-sm-0">
                                 <div class="numbers">
                                     <p class="card-category">Monthly Sales</p>
-                                    <h4 class="card-title">576</h4>
+                                    <h4 class="card-title">KSH: {{ number_format($monthlySales, 2) }}</h4>
                                 </div>
                             </div>
                         </div>

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Sale;
 use App\Models\User;
+use App\Models\Booking;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,10 +16,28 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        
+
         $userCount = User::count(); // Get the total number of users
+        $bookingsCount = Booking::count(); // Get the total number of bookings
+        $confirmed_bookingsCount = Booking::where('status', 'confirmed')->count(); // Get the total number of confirmed bookings
         $totalSales = Sale::sum('amount'); // Sum up the sales amounts from the Sale table
-        return view('portal.dashboard', compact('userCount', 'totalSales'));
+        $dailySales = Sale::whereDate('created_at', Carbon::today())->sum('amount'); // Sum up today's sales amounts
+        $monthlySales = Sale::whereMonth('created_at', Carbon::now()->month)
+            ->whereYear('created_at', Carbon::now()->year)
+            ->sum('amount'); // Sum up the sales amounts for the current month
+
+        $njoroSales = Sale::whereHas('branch', function ($query) {
+            $query->where('name', 'kwanza njoro');
+        })->sum('amount');
+
+        $egertonSales = Sale::whereHas('branch', function ($query) {
+            $query->where('name', 'kwanza egerton');
+        })->sum('amount');
+
+
+
+
+        return view('portal.dashboard', compact('userCount', 'totalSales', 'bookingsCount', 'confirmed_bookingsCount', 'dailySales', 'monthlySales', 'njoroSales', 'egertonSales'));
     }
 
     /**

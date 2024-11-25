@@ -10,7 +10,9 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\ManageBlogController;
-use App\Http\Controllers\ManageBookingsController; // Import ManageBookingsController
+use App\Http\Controllers\ManageBookingsController;
+use App\Http\Controllers\ManageSalesController;  // Import ManageSalesController
+use App\Http\Controllers\RecordSalesController;  // Import RecordSalesController
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -65,6 +67,13 @@ Route::middleware('auth')->group(function () {
     Route::put('/branches/{id}', [ManageBranchController::class, 'update'])->name('branches.update');
     Route::delete('/branches/{id}', [ManageBranchController::class, 'destroy'])->name('branches.destroy');
 
+    // Sales Routes
+    Route::get('/manage-sales', [ManageSalesController::class, 'index'])->name('sales.index'); // View all sales
+    Route::get('/manage-sale/{id}/edit', [ManageSalesController::class, 'edit'])->name('sales.edit'); // Edit sale
+    Route::put('/manage-sale/{id}', [ManageSalesController::class, 'update'])->name('sales.update'); // Update sale
+    Route::delete('/manage-sale/{id}', [ManageSalesController::class, 'destroy'])->name('sales.destroy'); // Delete sale
+    Route::get('/record-sale', [RecordSalesController::class, 'create'])->name('sales.create'); // Record a new sale
+    Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store'); // Store sale
 
     require_once 'profile.php';
 });

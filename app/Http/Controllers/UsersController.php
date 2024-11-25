@@ -13,8 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-
+        $users = User::paginate(3);
         return view('portal.user.index', compact('users'));
     }
 
