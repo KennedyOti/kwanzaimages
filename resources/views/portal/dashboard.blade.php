@@ -94,43 +94,94 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
 
-            <div class="col-md-4">
-                <div class="card card-primary card-round">
-                    <div class="card-header">
-                        <div class="card-head-row">
-                            <div class="card-title">Daily Sales</div>
-                            <div class="card-tools">
-                                <div class="dropdown">
-                                    <button class="btn btn-sm btn-label-light dropdown-toggle" type="button"
-                                        id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
-                                        aria-expanded="false">
-                                        Export
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                    </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-icon">
+                                <div class="icon-big text-center icon-primary bubble-shadow-small">
+                                    <i class="fas fa-users"></i>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card-category">March 25 - April 02</div>
-                    </div>
-                    <div class="card-body pb-0">
-                        <div class="mb-4 mt-2">
-                            <h1>$4,578.58</h1>
-                        </div>
-                        <div class="pull-in">
-                            <canvas id="dailySalesChart"></canvas>
+                            <div class="col col-stats ms-3 ms-sm-0">
+                                <div class="numbers">
+                                    <p class="card-category">EG-B-Sales</p>
+                                    <h4 class="card-title">{{ number_format($userCount) }}</h4>
+                                    <!-- Display the user count -->
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-icon">
+                                <div class="icon-big text-center icon-success bubble-shadow-small">
+                                    <i class="fas fa-user-check"></i>
+                                </div>
+                            </div>
+                            <div class="col col-stats ms-3 ms-sm-0">
+                                <div class="numbers">
+                                    <p class="card-category">NJ-B-Sales</p>
+                                    <h4 class="card-title">1303</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-icon">
+                                <div class="icon-big text-center icon-danger bubble-shadow-small">
+                                    <i class="fas fa-luggage-cart"></i>
+                                </div>
+                            </div>
+                            <div class="col col-stats ms-3 ms-sm-0">
+                                <div class="numbers">
+                                    <p class="card-category">Daily Sales</p>
+                                    <h4 class="card-title">{{ number_format($totalSales, 2) }}</h4>
+                                    <!-- Display total sales dynamically -->
+                                </div>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="card card-stats card-round">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-icon">
+                                <div class="icon-big text-center icon-warning bubble-shadow-small">
+                                    <i class="far fa-check-circle"></i>
+                                </div>
+                            </div>
+                            <div class="col col-stats ms-3 ms-sm-0">
+                                <div class="numbers">
+                                    <p class="card-category">Monthly Sales</p>
+                                    <h4 class="card-title">576</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    @endsection
+        <div class="row">
+
+
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+@endsection

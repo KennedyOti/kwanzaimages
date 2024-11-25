@@ -2,15 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\SalesController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ManageBranchController;
 use App\Http\Controllers\TeamsController;   // Import TeamsController
+use App\Http\Controllers\BlogController;       // Import BlogController
 use App\Http\Controllers\GalleryController; // Import GalleryController
 use App\Http\Controllers\ServicesController; // Import ServicesController
 use App\Http\Controllers\ManageBlogController; // Import ManageBlogController
-use App\Http\Controllers\BlogController;       // Import BlogController
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -25,9 +25,11 @@ Route::post('/blog/{blog}/comment', [BlogController::class, 'storeComment'])->na
 // Authenticated Routes
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/users', [UsersController::class, 'index'])->name('user.index');
+    
+
+
+
 
     // Manage Blogs Routes (for admins)
     Route::get('/manageblogs', [ManageBlogController::class, 'index'])->name('manageblog.index'); // List blogs for management
@@ -64,6 +66,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/sales', [SalesController::class, 'index'])->name('sales.index');
     Route::post('/sales', [SalesController::class, 'store'])->name('sales.store');
     Route::delete('/sales/{id}', [SalesController::class, 'destroy'])->name('sales.destroy');
+
+    require_once 'profile.php';
 });
 
 // Include Authentication Routes

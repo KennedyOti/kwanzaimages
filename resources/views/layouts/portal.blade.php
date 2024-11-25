@@ -74,7 +74,7 @@
                                 <a data-bs-toggle="collapse" href="{{ route('dashboard') }}" class="collapsed"
                                     aria-expanded="false">
                                     <i class="fas fa-home"></i>
-                                    <p>Dashboard</p>
+                                    <p>{{ ucwords(Auth::user()->role . ' Dashboard') }}</p>
                                     <span class="caret"></span>
                                 </a>
                             </li>
@@ -93,7 +93,7 @@
                                 <div class="collapse" id="base">
                                     <ul class="nav nav-collapse">
                                         <li>
-                                            <a href="components/avatars.html">
+                                            <a href="{{ route('user.index') }}">
                                                 <span class="sub-item">Manage Users</span>
                                             </a>
                                         </li>
@@ -527,25 +527,20 @@
                         <nav class="pull-left">
                             <ul class="nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="http://www.themekita.com">
-                                        ThemeKita
+                                    <a class="nav-link" href="http://www.dijisoftwares.com">
+                                        Portal Developed by Dijisoftwares Ict Hub
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"> Help </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"> Licenses </a>
-                                </li>
+
                             </ul>
                         </nav>
                         <div class="copyright">
-                            2024, made with <i class="fa fa-heart heart text-danger"></i> by
-                            <a href="http://www.themekita.com">ThemeKita</a>
+                            2024, Kwanza Images Photography <i class="fa fa-heart heart text-danger"></i> by
+                            <a href="http://www.dijisoftwares.com">Dijisoftwares Ict Hub</a>
                         </div>
                         <div>
-                            Distributed by
-                            <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
+
+                            <a target="_blank" href="https://dijisoftwares.com/">Kwanza Images Photography</a>.
                         </div>
                     </div>
                 </footer>
