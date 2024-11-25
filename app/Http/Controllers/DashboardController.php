@@ -14,6 +14,7 @@ class DashboardController extends Controller
     public function index()
     {
         //
+        
         $userCount = User::count(); // Get the total number of users
         $totalSales = Sale::sum('amount'); // Sum up the sales amounts from the Sale table
         return view('portal.dashboard', compact('userCount', 'totalSales'));

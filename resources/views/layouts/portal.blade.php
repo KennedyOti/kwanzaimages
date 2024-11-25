@@ -160,7 +160,7 @@
                                 <div class="collapse" id="tables">
                                     <ul class="nav nav-collapse">
                                         <li>
-                                            <a href="tables/tables.html">
+                                            <a href="{{ route('managebookings.index') }}">
                                                 <span class="sub-item">Manage Bookings</span>
                                             </a>
                                         </li>
@@ -470,8 +470,9 @@
                                     <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#"
                                         aria-expanded="false">
                                         <div class="avatar-sm">
-                                            <img src="assets/img/profile.jpg" alt="..."
-                                                class="avatar-img rounded-circle" />
+                                            <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}"
+                                                alt="Profile Picture" class="avatar-img rounded-circle" />
+
                                         </div>
                                         <span class="profile-username">
                                             <span class="op-7">Hi,</span>
@@ -483,24 +484,26 @@
                                             <li>
                                                 <div class="user-box">
                                                     <div class="avatar-lg">
-                                                        <img src="assets/img/profile.jpg" alt="image profile"
-                                                            class="avatar-img rounded" />
+                                                        <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}"
+                                                            alt="Profile Picture" class="avatar-img rounded-circle" />
                                                     </div>
                                                     <div class="u-text">
                                                         <h4>{{ Auth::user()->name }}</h4>
                                                         <p class="text-muted">{{ Auth::user()->email }}</p>
-                                                        <a href="profile.html"
+                                                        <a href="{{ route('profile.edit', Auth::user()->id) }}"
                                                             class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="dropdown-divider"></div>
+                                                <!---
                                                 <a class="dropdown-item" href="#">My Profile</a>
-                                                <a class="dropdown-item" href="#">My Balance</a>
-                                                <a class="dropdown-item" href="#">Inbox</a>
+                                                <a class="dropdown-item" href="#">My Balance</a>--->
                                                 <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Account Setting</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('profile.edit', Auth::user()->id) }}">Account
+                                                    Setting</a>
                                                 <div class="dropdown-divider"></div>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
                                                     style="display: none;">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Team;
 use App\Models\Gallery;
 use App\Models\Service;
+use App\Models\Booking; // Import the Booking model
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,61 +15,34 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //Home
+        // Fetch all gallery images, services, and team members
+        $images = Gallery::all();
+        $services = Service::all();
+        $teams = Team::all();
 
-        // Fetch all gallery images
-        $images = Gallery::all(); // Retrieves all images from the Gallery table
-        $services = Service::all(); // Retrieves all services from the Gallery table
-        $teams = Team::all(); // Fetch all team members
-        // Pass the images to the home view
+        // Pass the data to the home view
         return view('pages.home', compact('images', 'services', 'teams'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Handle booking form submission.
      */
-    public function create()
+    public function bookSession(Request $request)
     {
-        //
-    }
+        // Validate the form input
+        $validated = $request->validate([
+            'full_names' => 'required|string|max:255',
+            'email'     => 'required|email|max:255',
+            'phone'     => 'required|string|max:15',
+            'service'   => 'required|string|max:50',
+            'location'  => 'required|string|max:255',
+            'date'      => 'required|date',
+        ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        // Save the booking to the database
+        Booking::create($validated);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        // Redirect back with success message
+        return redirect()->back()->with('success', 'Your booking has been submitted successfully!');
     }
 }

@@ -23,7 +23,7 @@
                                             @if ($user->profile_picture)
                                                 <img src="{{ asset('storage/' . $user->profile_picture) }}"
                                                     alt="Profile Picture" class="img-thumbnail"
-                                                    style="width: 50px; height: 50px; object-fit: cover;">
+                                                    style="width: 100px; height: 100px; object-fit: cover;">
                                             @else
                                                 <span>No Image</span>
                                             @endif

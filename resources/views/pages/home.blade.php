@@ -237,15 +237,17 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-6">
-                    <form class="p-4 bg-white rounded shadow-lg needs-validation text-center"
+                    <form action="{{ route('book.session') }}" method="POST"
+                        class="p-4 bg-white rounded shadow-lg needs-validation text-center"
                         style="background-color: rgba(255, 255, 255, 0.7);" novalidate>
+                        @csrf <!-- Include CSRF token -->
                         <!-- Full Names -->
                         <div class="form-group">
                             <label for="fullNames" class="d-block"
                                 style="font-family: 'Cascadier Code Light', sans-serif;">Full Names</label>
-                            <input type="text" class="form-control form-control-lg text-center" id="fullNames"
-                                placeholder="Enter full names" style="font-family: 'Cascadier Code Light', sans-serif;"
-                                required>
+                            <input type="text" name="full_names" class="form-control form-control-lg text-center"
+                                id="fullNames" placeholder="Enter full names"
+                                style="font-family: 'Cascadier Code Light', sans-serif;" required>
                             <div class="invalid-feedback text-left">
                                 Please enter your full names.
                             </div>
@@ -255,9 +257,9 @@
                         <div class="form-group">
                             <label for="email" class="d-block"
                                 style="font-family: 'Cascadier Code Light', sans-serif;">Email</label>
-                            <input type="email" class="form-control form-control-lg text-center" id="email"
-                                placeholder="Enter email" style="font-family: 'Cascadier Code Light', sans-serif;"
-                                required>
+                            <input type="email" name="email" class="form-control form-control-lg text-center"
+                                id="email" placeholder="Enter email"
+                                style="font-family: 'Cascadier Code Light', sans-serif;" required>
                             <div class="invalid-feedback text-left">
                                 Please enter a valid email.
                             </div>
@@ -267,9 +269,9 @@
                         <div class="form-group">
                             <label for="phone" class="d-block"
                                 style="font-family: 'Cascadier Code Light', sans-serif;">Phone</label>
-                            <input type="tel" class="form-control form-control-lg text-center" id="phone"
-                                placeholder="Enter phone number" style="font-family: 'Cascadier Code Light', sans-serif;"
-                                required>
+                            <input type="tel" name="phone" class="form-control form-control-lg text-center"
+                                id="phone" placeholder="Enter phone number"
+                                style="font-family: 'Cascadier Code Light', sans-serif;" required>
                             <div class="invalid-feedback text-left">
                                 Please enter a valid phone number.
                             </div>
@@ -279,7 +281,7 @@
                         <div class="form-group">
                             <label for="service" class="d-block"
                                 style="font-family: 'Cascadier Code Light', sans-serif;">Service</label>
-                            <select class="form-control form-control-lg text-center" id="service"
+                            <select name="service" class="form-control form-control-lg text-center" id="service"
                                 style="font-family: 'Cascadier Code Light', sans-serif;" required>
                                 <option value="">Choose a service...</option>
                                 <option value="Wedding">Wedding</option>
@@ -297,9 +299,9 @@
                         <div class="form-group">
                             <label for="location" class="d-block"
                                 style="font-family: 'Cascadier Code Light', sans-serif;">Location</label>
-                            <input type="text" class="form-control form-control-lg text-center" id="location"
-                                placeholder="Enter location" style="font-family: 'Cascadier Code Light', sans-serif;"
-                                required>
+                            <input type="text" name="location" class="form-control form-control-lg text-center"
+                                id="location" placeholder="Enter location"
+                                style="font-family: 'Cascadier Code Light', sans-serif;" required>
                             <div class="invalid-feedback text-left">
                                 Please enter the location.
                             </div>
@@ -309,8 +311,8 @@
                         <div class="form-group">
                             <label for="date" class="d-block"
                                 style="font-family: 'Cascadier Code Light', sans-serif;">Date</label>
-                            <input type="datetime-local" class="form-control form-control-lg text-center" id="date"
-                                required>
+                            <input type="datetime-local" name="date" class="form-control form-control-lg text-center"
+                                id="date" required>
                             <div class="invalid-feedback text-left">
                                 Please choose a date.
                             </div>
@@ -321,10 +323,31 @@
                             <button type="submit" class="btn btn-secondary btn-lg mt-4">Submit</button>
                         </div>
                     </form>
+
+
+                    <!-- Success Message -->
+                    @if (session('success'))
+                        <div class="alert alert-success mt-3">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    <!-- Error Messages -->
+                    @if ($errors->any())
+                        <div class="alert alert-danger mt-3">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>
     </section>
+
 
 
     <!-- Contact Section -->
