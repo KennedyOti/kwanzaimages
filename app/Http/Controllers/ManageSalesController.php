@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Sale;
-use App\Models\Service;
 use App\Models\Branch;
+use App\Models\Service;
+use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ManageSalesController extends Controller
 {
@@ -64,5 +65,13 @@ class ManageSalesController extends Controller
         $sale->delete();
 
         return redirect()->route('sales.index')->with('success', 'Sale deleted successfully!');
+    }
+
+    public function print()
+    {
+        $sales = Sale::with('service', 'branch', 'user')->get();
+
+        $pdf = Pdf::loadView('portal.sales.printsales', compact('sales'));
+        return $pdf->download('sales_report.pdf');
     }
 }

@@ -28,6 +28,11 @@
                             </div>
                         @endif
 
+                        <!-- Print Sales Button -->
+                        <div class="mb-3">
+                            <a href="{{ route('sales.print') }}" target="_blank" class="btn btn-primary">Print Sales</a>
+                        </div>
+
                         <!-- Sales Table -->
                         <table class="table table-bordered">
                             <thead>

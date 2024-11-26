@@ -92,15 +92,10 @@ Route::middleware('auth')->group(function () {
         Route::delete('/manage-sale/{id}', [ManageSalesController::class, 'destroy'])->name('sales.destroy');
         Route::get('/record-sale', [RecordSalesController::class, 'create'])->name('sales.create');
         Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store');
+        Route::get('/sales/print', [ManageSalesController::class, 'print'])->name('sales.print');
     });
 
-    // Active Employee Routes
-    Route::middleware('checkrole:employee')->group(function () {
-        Route::get('/record-sale', [RecordSalesController::class, 'create'])->name('sales.create');
-        Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store');
-        Route::get('/manage-bookings', [ManageBookingsController::class, 'index'])->name('managebookings.index'); // View all bookings
-        Route::post('/manage-booking/{id}/confirm', [ManageBookingsController::class, 'confirm'])->name('managebookings.confirm'); // Confirm booking
-    });
+
 
     require_once 'profile.php';
 });
