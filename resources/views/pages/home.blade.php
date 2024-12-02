@@ -128,7 +128,7 @@
                 @foreach ($images as $image)
                     <!-- Image containers will be dynamically updated by JavaScript -->
                     <div class="col-4 mb-4 gallery-item" style="flex: 0 0 32%; margin: 0 1%; padding: 0;">
-                        <img src="p10.jpg" class="img-fluid gallery-img" alt="Gallery Image 1"
+                        <img class="img-fluid gallery-img"
                             style="width: 100%; height: auto;">
                     </div>
                 @endforeach
@@ -161,10 +161,10 @@
             </div>
 
             <!-- Navigation Buttons -->
-            <div class="text-center mt-4">
+            <!-- <div class="text-center mt-4">
                 <button class="btn btn-primary" id="prev-btn">Back</button>
                 <button class="btn btn-primary" id="next-btn">Next</button>
-            </div>
+            </div> -->
         </div>
     </section>
 
