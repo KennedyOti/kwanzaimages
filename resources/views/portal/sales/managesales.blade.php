@@ -1,5 +1,4 @@
 @extends('layouts.portal')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 @section('content')
     <div class="container">
@@ -13,6 +12,15 @@
                     </div>
 
                     <div class="card-body">
+                        <!-- Search Form -->
+                        <form method="GET" action="{{ route('sales.index') }}" class="mb-3">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Search sales..."
+                                    value="{{ request('search') }}">
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                        </form>
+
                         <!-- Success and Error Message Pop-ups -->
                         @if (session('success'))
                             <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -28,11 +36,6 @@
                             </div>
                         @endif
 
-                        <!-- Print Sales Button -->
-                        <div class="mb-3">
-                            <a href="{{ route('sales.print') }}" target="_blank" class="btn btn-primary">Print Sales</a>
-                        </div>
-
                         <!-- Sales Table -->
                         <table class="table table-bordered">
                             <thead>
@@ -40,6 +43,9 @@
                                     <th>Sale_Id</th>
                                     <th>Service</th>
                                     <th>Branch</th>
+                                    <th>Client Name</th>
+                                    <th>Client Contact</th>
+                                    <th>Status</th>
                                     <th>Quantity</th>
                                     <th>Amount</th>
                                     <th>Recorded By</th>
@@ -52,6 +58,25 @@
                                         <td>{{ $sale->id }}</td>
                                         <td>{{ $sale->service->title }}</td>
                                         <td>{{ $sale->branch->name }}</td>
+                                        <td>{{ $sale->client_name }}</td>
+                                        <td>{{ $sale->client_contact }}</td>
+                                        <td>
+                                            <form action="{{ route('sales.changeStatus', $sale->id) }}" method="POST">
+                                                @csrf
+                                                @method('PUT')
+                                                <select name="status" class="form-select" onchange="this.form.submit()">
+                                                    <option value="pending"
+                                                        {{ $sale->status === 'pending' ? 'selected' : '' }}>Pending
+                                                    </option>
+                                                    <option value="completed"
+                                                        {{ $sale->status === 'completed' ? 'selected' : '' }}>Completed
+                                                    </option>
+                                                    <option value="canceled"
+                                                        {{ $sale->status === 'canceled' ? 'selected' : '' }}>Canceled
+                                                    </option>
+                                                </select>
+                                            </form>
+                                        </td>
                                         <td>{{ $sale->quantity }}</td>
                                         <td>{{ number_format($sale->amount, 2) }}</td>
                                         <td>{{ $sale->user->name }}</td>

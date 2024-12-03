@@ -93,6 +93,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/record-sale', [RecordSalesController::class, 'create'])->name('sales.create');
         Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store');
         Route::get('/sales/print', [ManageSalesController::class, 'print'])->name('sales.print');
+        Route::put('/sales/{id}/change-status', [ManageSalesController::class, 'changeStatus'])->name('sales.changeStatus');
     });
 
 

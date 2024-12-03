@@ -46,6 +46,20 @@
                                 </select>
                             </div>
 
+                            <!-- New Fields for Client Information -->
+                            <div class="mb-3">
+                                <label for="client_name" class="form-label">Client Name</label>
+                                <input type="text" name="client_name" id="client_name" class="form-control"
+                                    placeholder="Enter client's name" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="client_contact" class="form-label">Client Contact</label>
+                                <input type="text" name="client_contact" id="client_contact" class="form-control"
+                                    placeholder="Enter client's contact (e.g., phone or email)" required>
+                            </div>
+                            <!-- End of Client Information -->
+
                             <div class="mb-3">
                                 <label for="quantity" class="form-label">Quantity</label>
                                 <input type="number" name="quantity" id="quantity" class="form-control" min="1"
@@ -57,6 +71,8 @@
                                 <input type="number" name="amount" id="amount" class="form-control" min="1"
                                     required>
                             </div>
+
+
 
                             <div class="mb-3">
                                 <button type="submit" class="btn btn-primary">Record Sale</button>

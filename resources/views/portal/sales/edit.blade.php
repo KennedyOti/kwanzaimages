@@ -43,6 +43,31 @@
                             </div>
 
                             <div class="mb-3">
+                                <label for="client_name" class="form-label">Client Name</label>
+                                <input type="text" name="client_name" id="client_name" class="form-control"
+                                    value="{{ $sale->client_name }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="client_contact" class="form-label">Client Contact</label>
+                                <input type="text" name="client_contact" id="client_contact" class="form-control"
+                                    value="{{ $sale->client_contact }}" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select name="status" id="status" class="form-select" required>
+                                    <option value="pending" {{ $sale->status === 'pending' ? 'selected' : '' }}>Pending
+                                    </option>
+                                    <option value="completed" {{ $sale->status === 'completed' ? 'selected' : '' }}>
+                                        Completed</option>
+                                    <option value="canceled" {{ $sale->status === 'canceled' ? 'selected' : '' }}>Canceled
+                                    </option>
+                                </select>
+                            </div>
+
+
+                            <div class="mb-3">
                                 <label for="quantity" class="form-label">Quantity</label>
                                 <input type="number" name="quantity" id="quantity" class="form-control"
                                     value="{{ $sale->quantity }}" min="1" required>

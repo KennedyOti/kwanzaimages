@@ -11,12 +11,34 @@ use Barryvdh\DomPDF\Facade\Pdf;
 class ManageSalesController extends Controller
 {
     /**
-     * Display a listing of the sales with pagination.
+     * Display a listing of the sales with pagination and filter search.
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Paginate the sales data with 10 records per page
-        $sales = Sale::with('service', 'branch', 'user')->paginate(9);
+        $query = Sale::with('service', 'branch', 'user');
+
+        // Apply filters based on request input
+        if ($request->has('search') && !empty($request->search)) {
+            $searchTerm = $request->search;
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('client_name', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('client_contact', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhereHas('service', function ($q) use ($searchTerm) {
+                        $q->where('title', 'LIKE', '%' . $searchTerm . '%');
+                    })
+                    ->orWhereHas('branch', function ($q) use ($searchTerm) {
+                        $q->where('name', 'LIKE', '%' . $searchTerm . '%');
+                    })
+                    ->orWhere('quantity', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('amount', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhere('status', 'LIKE', '%' . $searchTerm . '%')
+                    ->orWhereHas('user', function ($q) use ($searchTerm) {
+                        $q->where('name', 'LIKE', '%' . $searchTerm . '%');
+                    });
+            });
+        }
+
+        $sales = $query->paginate(9);
 
         return view('portal.sales.managesales', compact('sales'));
     }
@@ -43,17 +65,26 @@ class ManageSalesController extends Controller
             'branch_id' => 'required|exists:branches,id',
             'quantity' => 'required|integer|min:1',
             'amount' => 'required|numeric|min:1',
+            'client_name' => 'required|string|max:255',
+            'client_contact' => 'required|string|max:20',
+            'status' => 'required|in:pending,completed,canceled',
         ]);
 
         $sale = Sale::findOrFail($id);
-        $sale->update([
-            'service_id' => $request->service_id,
-            'branch_id' => $request->branch_id,
-            'quantity' => $request->quantity,
-            'amount' => $request->amount,
-        ]);
+        $sale->update($request->all());
 
         return redirect()->route('sales.index')->with('success', 'Sale updated successfully!');
+    }
+
+    /**
+     * Change the status of a sale.
+     */
+    public function changeStatus(Request $request, $id)
+    {
+        $sale = Sale::findOrFail($id);
+        $sale->update(['status' => $request->status]);
+
+        return redirect()->route('sales.index')->with('success', 'Status updated successfully!');
     }
 
     /**
@@ -67,6 +98,9 @@ class ManageSalesController extends Controller
         return redirect()->route('sales.index')->with('success', 'Sale deleted successfully!');
     }
 
+    /**
+     * Print all sales as a PDF report.
+     */
     public function print()
     {
         $sales = Sale::with('service', 'branch', 'user')->get();

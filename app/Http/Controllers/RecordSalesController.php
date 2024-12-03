@@ -26,11 +26,14 @@ class RecordSalesController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate the incoming request data
         $request->validate([
             'service_id' => 'required|exists:services,id',
             'branch_id' => 'required|exists:branches,id',
             'quantity' => 'required|integer|min:1',
             'amount' => 'required|numeric|min:1',
+            'client_name' => 'required|string|max:255',
+            'client_contact' => 'required|string|max:255',
         ]);
 
         try {
@@ -40,6 +43,8 @@ class RecordSalesController extends Controller
                 'branch_id' => $request->branch_id,
                 'quantity' => $request->quantity,
                 'amount' => $request->amount,
+                'client_name' => $request->client_name,
+                'client_contact' => $request->client_contact,
                 'user_id' => Auth::id(), // Assign the current authenticated user
             ]);
 

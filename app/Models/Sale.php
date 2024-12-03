@@ -18,8 +18,11 @@ class Sale extends Model
         'service_id',
         'branch_id',
         'user_id',
+        'client_name',
+        'client_contact',
         'quantity',
         'amount',
+        'status',
     ];
 
     /**

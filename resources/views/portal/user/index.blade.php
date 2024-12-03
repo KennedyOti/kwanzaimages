@@ -13,6 +13,7 @@
                                     <th>Profile Picture</th>
                                     <th>Full Name</th>
                                     <th>Email</th>
+                                    <th>Role</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -30,6 +31,7 @@
                                         </td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
+                                        <td>{{ $user->role }}</td>
                                         <td>
                                             <a href="{{ route('profile.edit', $user->id) }}">
                                                 <i class="fas fa-edit"></i> Manage
