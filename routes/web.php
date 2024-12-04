@@ -85,7 +85,7 @@ Route::middleware('auth')->group(function () {
     });
 
     // Sales Routes
-    Route::middleware('checkrole:admin, employee')->group(function () {
+    Route::middleware('checkrole:admin,employee')->group(function () {
         Route::get('/manage-sales', [ManageSalesController::class, 'index'])->name('sales.index');
         Route::get('/manage-sale/{id}/edit', [ManageSalesController::class, 'edit'])->name('sales.edit');
         Route::put('/manage-sale/{id}', [ManageSalesController::class, 'update'])->name('sales.update');
