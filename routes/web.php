@@ -38,12 +38,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/manage-booking/{id}/confirm', [ManageBookingsController::class, 'confirm'])->name('managebookings.confirm'); // Confirm booking
     });
 
-    // Employee Routes
-    Route::middleware('checkrole:admin,employee')->group(function () {
-        Route::get('/manage-bookings', [ManageBookingsController::class, 'index'])->name('managebookings.index'); // View all bookings
-        Route::get('/record-sale', [RecordSalesController::class, 'create'])->name('sales.create');
-        Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store');
-    });
+    
 
     // Manage Blogs Routes
     Route::get('/manageblogs', [ManageBlogController::class, 'index'])->name('manageblog.index');
@@ -95,6 +90,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/sales/print', [ManageSalesController::class, 'print'])->name('sales.print');
         Route::put('/sales/{id}/change-status', [ManageSalesController::class, 'changeStatus'])->name('sales.changeStatus');
     });
+
+
 
 
 

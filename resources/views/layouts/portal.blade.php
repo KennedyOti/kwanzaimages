@@ -245,6 +245,12 @@
                                                     </a>
                                                 </li>
 
+                                                <li>
+                                                    <a href="{{ route('sales.index') }}">
+                                                        <span class="sub-item">Manage Sales</span>
+                                                    </a>
+                                                </li>
+
                                             </ul>
                                         </div>
                                     </li>

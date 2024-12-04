@@ -81,14 +81,16 @@
                                         <td>{{ number_format($sale->amount, 2) }}</td>
                                         <td>{{ $sale->user->name }}</td>
                                         <td>
-                                            <a href="{{ route('sales.edit', $sale->id) }}"
-                                                class="btn btn-warning btn-sm">Edit</a>
-                                            <form action="{{ route('sales.destroy', $sale->id) }}" method="POST"
-                                                style="display:inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                            </form>
+                                            @if (auth()->user()->role === 'admin')
+                                                <a href="{{ route('sales.edit', $sale->id) }}"
+                                                    class="btn btn-warning btn-sm">Edit</a>
+                                                <form action="{{ route('sales.destroy', $sale->id) }}" method="POST"
+                                                    style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                                </form>
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
