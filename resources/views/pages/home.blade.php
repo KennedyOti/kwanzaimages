@@ -18,10 +18,10 @@
                     <img src="{{ asset('assets/images/p7.jpg') }}" class="d-block w-100" alt="Slide 1"
                         style="height: 100vh; object-fit: cover;">
                     <div class="carousel-caption text-center">
-                        <h5 class="fs-5">Capture Every Moment</h5>
-                        <h1 class="fs-1">Preserving Memories</h1>
+                        <h5 class="fs-5">Welcome To</h5>
+                        <h1 class="fs-1">KWANZA IMAGES</h1>
                         <h2 class="fs-2" style="color: cornflowerblue;">One Shot at a Time</h2>
-                        <p class="lead">At KWANZA IMAGES, we believe every picture tells a story.</p>
+                        <p class="lead">Your Trusted Photography and Videography Partner in Njoro Town, Nakuru County</p>
                         <!-- Book Session Button -->
                         <a href="#book-session" class="btn btn-primary btn-lg mt-4"
                             style="background-color: cornflowerblue; color: white; border-radius: 50px; padding: 12px 30px;">Book
@@ -87,10 +87,23 @@
             <div class="row">
                 <div class="col-md-6">
                     <h2>About Us</h2>
-                    <p>Kwanza Images specialises in offering quality photography and videography services.We offer
-                        studio and outdoor photography,wedding and event coverage.
+                    <p>
+                        Welcome to Kwanza Images, your trusted destination for professional photography and videography
+                        services in Njoro Town, Nakuru County, Kenya. Conveniently located at Njoro Posta, we are dedicated
+                        to capturing your most cherished moments with precision and creativity.
 
+                        At Kwanza Images, we specialize in high-quality studio and outdoor photography, tailored to suit
+                        your unique preferences. Whether you're looking for stunning portraits, memorable family photos, or
+                        captivating landscapes, we deliver results that exceed expectations.
+
+                        Our expert team also provides comprehensive wedding and event coverage, ensuring every detail of
+                        your special day is beautifully preserved. From the joyous smiles to heartfelt moments, we’re
+                        committed to making your memories timeless.
+
+                        Choose Kwanza Images for unmatched quality, professionalism, and a personalized touch that brings
+                        your vision to life. Let us help you tell your story through the lens of creativity and artistry.
                     </p>
+
                 </div>
                 <div class="col-md-6">
                     <img id="logo1" src="{{ asset('assets/images/logo.jpg') }}" class="img-fluid" alt="About Me">
@@ -128,8 +141,7 @@
                 @foreach ($images as $image)
                     <!-- Image containers will be dynamically updated by JavaScript -->
                     <div class="col-4 mb-4 gallery-item" style="flex: 0 0 32%; margin: 0 1%; padding: 0;">
-                        <img class="img-fluid gallery-img"
-                            style="width: 100%; height: auto;">
+                        <img class="img-fluid gallery-img" style="width: 100%; height: auto;">
                     </div>
                 @endforeach
             </div>
@@ -162,9 +174,9 @@
 
             <!-- Navigation Buttons -->
             <!-- <div class="text-center mt-4">
-                <button class="btn btn-primary" id="prev-btn">Back</button>
-                <button class="btn btn-primary" id="next-btn">Next</button>
-            </div> -->
+                                <button class="btn btn-primary" id="prev-btn">Back</button>
+                                <button class="btn btn-primary" id="next-btn">Next</button>
+                            </div> -->
         </div>
     </section>
 
@@ -207,8 +219,17 @@
                         <h1 class="display-4 " style="font-family: 'Times New Roman', Times, serif;"><b>Kwanza
                                 Show</b></h1>
                     </a>
-                    <p class="lead">Welcome to Kwanza Show, where we capture the most precious moments of your life
-                        through the lens of perfection. Experience the magic of photography with us.</p>
+                    <p class="lead" style="text-align: justify;">Welcome to the Kwanza Show <br>
+                        Dive into a world of impactful storytelling that inspires and transforms lives, one story at a time.
+                        At Kwanza Show, we shine a spotlight on real-life experiences, journeys, and narratives that
+                        resonate deeply with our audience. Our mission is to bring meaningful stories to life—stories that
+                        educate, empower, and ignite positive change in communities.
+
+                        Whether it’s a tale of triumph, resilience, or innovation, each episode of Kwanza Show is designed
+                        to captivate, inform, and inspire. Join us as we celebrate the human spirit and uncover the untold
+                        stories that truly matter.
+
+                        Start your journey with us today and experience the power of storytelling to transform lives.</p>
                 </div>
 
                 <!-- Video for Large Screens -->

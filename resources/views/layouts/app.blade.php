@@ -4,7 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kwanza images</title>
+    <meta property="og:site_name"
+        content="Kwanza Images - Your premier photography and videography studio in Njoro Town, Kenya." />
+    <meta property="og:title" content="Home - KWANZA IMAGES" />
+
+    <meta name="description"
+        content="Discover Kwanza Images, your premier photography and videography studio in Njoro Town, Nakuru County, Kenya. We specialize in studio 
+        photography, outdoor shoots, wedding and event coverage, and creative videography. Capture your cherished moments with Kwanza Images!" />
+
+    <meta name="keywords"
+        content="Photography in Njoro, Videography in Njoro, Wedding Photography Nakuru, Event Photography Kenya, Studio Photography Njoro,
+         Outdoor Photography Nakuru, Professional Photography Kenya, Njoro Photography Services, Videography Nakuru County, Wedding Coverage Kenya, 
+         Event Coverage Njoro, Photography and Videography Kenya, Creative Photography Nakuru, Kwanza Images Njoro, Photography Studio Kenya" />
+
+
+
+
+
+    <title>KWANZA IMAGES</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
@@ -74,6 +91,9 @@
         <div class="collapse navbar-collapse" id="navbarNav" style="margin-left: 20px;">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('home') }}">Home</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#about">About Us</a>
                 </li>
                 <li class="nav-item">
@@ -85,7 +105,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#services">Services</a>
                 </li>
-                
+
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
@@ -153,6 +173,23 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
     <script src="{{ asset('assets/js/script.js') }}"></script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Kwanza Images",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Njoro Posta, Njoro Town",
+                "addressLocality": "Nakuru County",
+                "addressCountry": "Kenya"
+            },
+            "telephone": "+254700123456",
+            "email": "info@kwanzaimages.co.ke",
+            "url": "https://kwanzaimages.co.ke"
+        }
+        </script>
+
 </body>
 
 </html>
