@@ -34,10 +34,52 @@ class DashboardController extends Controller
             $query->where('name', 'kwanza egerton');
         })->sum('amount');
 
+        $njoro_daily_sales = Sale::whereHas('branch', function ($query) {
+            $query->where('name', 'kwanza njoro');
+        })
+            ->whereDate('created_at', now())
+            ->sum('amount');
+        $egerton_daily_sales = Sale::whereHas('branch', function ($query) {
+            $query->where('name', 'kwanza egerton');
+        })
+            ->whereDate('created_at', now())
+            ->sum('amount');
+        // Fetch Monthly Sales Foe Egerton
+        $egerton_monthly_sales = Sale::whereHas('branch', function ($query) {
+            $query->where('name', 'kwanza egerton');
+        })
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->sum('amount');
+
+        // Fetch Monthly Sales Foe Njoro
+        $njoro_monthly_sales = Sale::whereHas('branch', function ($query) {
+            $query->where('name', 'kwanza njoro');
+        })
+            ->whereMonth('created_at', now()->month)
+            ->whereYear('created_at', now()->year)
+            ->sum('amount');
 
 
 
-        return view('portal.dashboard', compact('userCount', 'totalSales', 'bookingsCount', 'confirmed_bookingsCount', 'dailySales', 'monthlySales', 'njoroSales', 'egertonSales'));
+
+
+
+
+        return view('portal.dashboard', compact(
+            'userCount',
+            'totalSales',
+            'bookingsCount',
+            'confirmed_bookingsCount',
+            'dailySales',
+            'monthlySales',
+            'njoroSales',
+            'egertonSales',
+            'njoro_daily_sales',
+            'egerton_daily_sales',
+            'egerton_monthly_sales',
+            'njoro_monthly_sales'
+        ));
     }
 
     /**

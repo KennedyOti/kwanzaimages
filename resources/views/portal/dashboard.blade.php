@@ -10,7 +10,7 @@
             </div>
             <div class="ms-md-auto py-2 py-md-0">
                 @if (auth()->check() && auth()->user()->role == 'employee')
-                <a href="{{ route('sales.create') }}" class="btn btn-primary btn-round">Record Sales</a>
+                    <a href="{{ route('sales.create') }}" class="btn btn-primary btn-round">Record Sales</a>
                 @endif
             </div>
         </div>
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
                                     <div class="numbers">
-                                        <p class="card-category">Total Sales</p>
+                                        <p class="card-category">Total Revenue</p>
                                         <h4 class="card-title">KSH: {{ number_format($totalSales, 2) }}</h4>
                                         <!-- Display total sales dynamically -->
                                     </div>
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
                                     <div class="numbers">
-                                        <p class="card-category">Egerton Branch Sales</p>
+                                        <p class="card-category">Egerton Branch Total Revenue</p>
                                         <h4 class="card-title">KSH: {{ number_format($egertonSales, 2) }}</h4>
                                         <!-- Display the user count -->
                                     </div>
@@ -131,7 +131,7 @@
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
                                     <div class="numbers">
-                                        <p class="card-category">NJoro Branch Sales</p>
+                                        <p class="card-category">NJoro Branch Total Revenue</p>
                                         <h4 class="card-title">KSH: {{ number_format($njoroSales, 2) }}</h4>
                                     </div>
                                 </div>
@@ -150,7 +150,7 @@
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
                                     <div class="numbers">
-                                        <p class="card-category">Daily Sales</p>
+                                        <p class="card-category">Total Daily Sales</p>
                                         <h4 class="card-title">KSH: {{ number_format($dailySales, 2) }}</h4>
                                         <!-- Display total sales dynamically -->
                                     </div>
@@ -171,8 +171,89 @@
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
                                     <div class="numbers">
-                                        <p class="card-category">Monthly Sales</p>
+                                        <p class="card-category">Total Monthly Sales</p>
                                         <h4 class="card-title">KSH: {{ number_format($monthlySales, 2) }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-stats card-round">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center icon-primary bubble-shadow-small">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                </div>
+                                <div class="col col-stats ms-3 ms-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">Egerton Branch Daily Sales</p>
+                                        <h4 class="card-title">KSH: {{ number_format($egerton_daily_sales, 2) }}</h4>
+                                        <!-- Display the user count -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-stats card-round">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center icon-success bubble-shadow-small">
+                                        <i class="fas fa-user-check"></i>
+                                    </div>
+                                </div>
+                                <div class="col col-stats ms-3 ms-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">NJoro Branch Daily Sales</p>
+                                        <h4 class="card-title">KSH: {{ number_format($njoro_daily_sales, 2) }}</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-stats card-round">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center icon-danger bubble-shadow-small">
+                                        <i class="fas fa-luggage-cart"></i>
+                                    </div>
+                                </div>
+                                <div class="col col-stats ms-3 ms-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">Egerton Branch Monthly Sales</p>
+                                        <h4 class="card-title">KSH: {{ number_format($egerton_monthly_sales, 2) }}</h4>
+                                        <!-- Display total sales dynamically -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-stats card-round">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-icon">
+                                    <div class="icon-big text-center icon-warning bubble-shadow-small">
+                                        <i class="far fa-check-circle"></i>
+                                    </div>
+                                </div>
+                                <div class="col col-stats ms-3 ms-sm-0">
+                                    <div class="numbers">
+                                        <p class="card-category">Njoro Branch Monthly Sales</p>
+                                        <h4 class="card-title">KSH: {{ number_format($njoro_monthly_sales, 2) }}</h4>
                                     </div>
                                 </div>
                             </div>
