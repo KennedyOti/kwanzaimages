@@ -311,6 +311,8 @@
                     the
                     book session form with the
                     service you want or contact the system admin here: 0793543659</p>
+
+                <h2 style="text-align: center"><a href="{{ route('home') }}">Back To Website</a></h2>
             @endif
         </div>
         <div class="row">
