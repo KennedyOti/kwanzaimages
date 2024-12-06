@@ -9,7 +9,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!------CDN ICNS-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Fonts and icons -->
     <script src="{{ asset('assets/js/plugin/webfont/webfont.min.js') }}"></script>
     <script>
@@ -24,7 +26,7 @@
                     "Font Awesome 5 Brands",
                     "simple-line-icons",
                 ],
-                urls: ["assets/css/fonts.min.css"],
+                urls: [{{ asset('assets/css/fonts.min.css') }}],
             },
             active: function() {
                 sessionStorage.fonts = true;
@@ -91,7 +93,7 @@
                                 @case('admin')
                                     <li class="nav-item">
                                         <a data-bs-toggle="collapse" href="#base">
-                                            <i class="fas fa-layer-group"></i>
+                                            <i class="fas fa-users"></i>
                                             <p>Users</p>
                                             <span class="caret"></span>
                                         </a>
@@ -107,7 +109,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                                            <i class="fas fa-th-list"></i>
+                                            <i class="fas fa-handshake"></i>
                                             <p>Teams</p>
                                             <span class="caret"></span>
                                         </a>
@@ -125,7 +127,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a data-bs-toggle="collapse" href="#sidebarLayouts">
-                                            <i class="fas fa-th-list"></i>
+                                            <i class="fas fa-images"></i>
                                             <p>Gallery</p>
                                             <span class="caret"></span>
                                         </a>
@@ -142,7 +144,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a data-bs-toggle="collapse" href="#forms">
-                                            <i class="fas fa-pen-square"></i>
+                                            <i class="fas fa-tools"></i>
                                             <p>Services</p>
                                             <span class="caret"></span>
                                         </a>
@@ -158,7 +160,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a data-bs-toggle="collapse" href="#tables">
-                                            <i class="fas fa-table"></i>
+                                            <i class="fas fa-calendar-check"></i>
                                             <p>Bookings</p>
                                             <span class="caret"></span>
                                         </a>
@@ -174,7 +176,7 @@
                                     </li>
                                     <li class="nav-item">
                                         <a data-bs-toggle="collapse" href="#maps">
-                                            <i class="fas fa-map-marker-alt"></i>
+                                            <i class="fas fa-blog"></i>
                                             <p>Blogs</p>
                                             <span class="caret"></span>
                                         </a>
@@ -209,7 +211,8 @@
                                     </li>
                                     <li class="nav-item">
                                         <a data-bs-toggle="collapse" href="#charts">
-                                            <i class="far fa-chart-bar"></i>
+                                            <i class="fas fa-shopping-cart"></i>
+
                                             <p>Sales</p>
                                             <span class="caret"></span>
                                         </a>

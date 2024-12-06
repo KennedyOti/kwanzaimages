@@ -45,7 +45,7 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-info bubble-shadow-small">
-                                        <i class="fas fa-user-check"></i>
+                                        <i class="fas fa-calendar-check"></i>
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
@@ -64,7 +64,7 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-success bubble-shadow-small">
-                                        <i class="fas fa-luggage-cart"></i>
+                                        <i class="fas fa-chart-line"></i>
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
@@ -105,7 +105,7 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-primary bubble-shadow-small">
-                                        <i class="fas fa-users"></i>
+                                        <i class="fas fa-dollar-sign"></i>
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
@@ -126,7 +126,8 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-success bubble-shadow-small">
-                                        <i class="fas fa-user-check"></i>
+                                        <i class="fas fa-dollar-sign"></i>
+
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
@@ -145,7 +146,8 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-danger bubble-shadow-small">
-                                        <i class="fas fa-luggage-cart"></i>
+                                        <i class="fas fa-dollar-sign"></i>
+
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
@@ -166,7 +168,8 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-warning bubble-shadow-small">
-                                        <i class="far fa-check-circle"></i>
+                                        <i class="fas fa-dollar-sign"></i>
+
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
@@ -186,7 +189,7 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-primary bubble-shadow-small">
-                                        <i class="fas fa-users"></i>
+                                        <i class="fas fa-dollar-sign"></i>
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
@@ -207,7 +210,8 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-success bubble-shadow-small">
-                                        <i class="fas fa-user-check"></i>
+                                        <i class="fas fa-dollar-sign"></i>
+
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
@@ -226,7 +230,7 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-danger bubble-shadow-small">
-                                        <i class="fas fa-luggage-cart"></i>
+                                        <i class="fas fa-dollar-sign"></i>
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
@@ -247,7 +251,7 @@
                             <div class="row align-items-center">
                                 <div class="col-icon">
                                     <div class="icon-big text-center icon-warning bubble-shadow-small">
-                                        <i class="far fa-check-circle"></i>
+                                        <i class="fas fa-dollar-sign"></i>
                                     </div>
                                 </div>
                                 <div class="col col-stats ms-3 ms-sm-0">
