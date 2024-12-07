@@ -49,6 +49,7 @@
                                     <th>Quantity</th>
                                     <th>Amount</th>
                                     <th>Recorded By</th>
+                                    <th>Date Recorded</th>
                                     <th>Actions</th>
                                 </tr>
                             </thead>
@@ -80,6 +81,7 @@
                                         <td>{{ $sale->quantity }}</td>
                                         <td>{{ number_format($sale->amount, 2) }}</td>
                                         <td>{{ $sale->user->name }}</td>
+                                        <td>{{ $sale->created_at }}</td>
                                         <td>
                                             @if (auth()->user()->role === 'admin')
                                                 <a href="{{ route('sales.edit', $sale->id) }}"
