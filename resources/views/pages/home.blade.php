@@ -19,7 +19,7 @@
                         style="height: 100vh; object-fit: cover;">
                     <div class="carousel-caption text-center">
                         <h5 class="fs-5">Welcome To</h5>
-                        <h1 class="fs-1">KWANZA IMAGES</h1>
+                        <h1 class="fs-1">KWANZA IMAGES STUDIO</h1>
                         <h2 class="fs-2" style="color: cornflowerblue;">One Shot at a Time</h2>
                         <p class="lead">Your Trusted Photography and Videography Partner in Njoro Town, Nakuru County</p>
                         <!-- Book Session Button -->
@@ -88,7 +88,7 @@
                 <div class="col-md-6">
                     <h2>About Us</h2>
                     <p>
-                        Welcome to Kwanza Images, your trusted destination for professional photography and videography
+                        Welcome to Kwanza Images Studio, your trusted destination for professional photography and videography
                         services in Njoro Town, Nakuru County, Kenya. Conveniently located at Njoro Posta, we are dedicated
                         to capturing your most cherished moments with precision and creativity.
 
