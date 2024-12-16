@@ -15,7 +15,7 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="{{ asset('assets/images/p7.jpg') }}" class="d-block w-100" alt="Slide 1"
+                    <img src="{{ asset('assets/images/p7.webp') }}" class="d-block w-100" alt="Slide 1"
                         style="height: 100vh; object-fit: cover;">
                     <div class="carousel-caption text-center">
                         <h5 class="fs-5">Welcome To</h5>
@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('assets/images/p14.jpg') }}" class="d-block w-100" alt="Slide 2"
+                    <img src="{{ asset('assets/images/p14.webp') }}" class="d-block w-100" alt="Slide 2"
                         style="height: 100vh; object-fit: cover;">
                     <div class="carousel-caption text-center">
                         <h5 class="fs-5">Your Story in Focus</h5>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="{{ asset('assets/images/stud.jpg') }}" class="d-block w-100" alt="Slide 3"
+                    <img src="{{ asset('assets/images/stud.webp') }}" class="d-block w-100" alt="Slide 3"
                         style="height: 100vh; object-fit: cover;">
                     <div class="carousel-caption text-center">
                         <h5 class="fs-5">Art in Every Frame</h5>
@@ -373,7 +373,7 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section"
-        style="padding-top: 110px; background-color: rgba(0, 86, 179, 0.5); background-image: url('{{ asset('assets/images/p14.jpg') }}'); background-size: cover; background-position: center;">
+        style="padding-top: 110px; background-color: rgba(0, 86, 179, 0.5); background-image: url('{{ asset('assets/images/p14.webp') }}'); background-size: cover; background-position: center;">
 
         <div class="container">
             <h2 id="contact-header" class="text-center mb-5">Get in Touch</h2>

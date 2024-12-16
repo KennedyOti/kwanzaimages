@@ -39,7 +39,7 @@ body {
 
 .hero-section {
     height: 170vh;
-    background: url("../images/p15.jpg") no-repeat center center;
+    background: url("../images/p15.webp") no-repeat center center;
     background-size: cover;
     display: flex;
     align-items: center;
@@ -52,7 +52,7 @@ body {
 @media (max-width: 920px) {
     .hero-section {
         height: 70vh;
-        background: url("../images/p15.jpg") no-repeat center center;
+        background: url("../images/p15.webp") no-repeat center center;
         background-size: cover;
         display: flex;
         align-items: center;
