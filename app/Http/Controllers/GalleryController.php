@@ -23,7 +23,7 @@ class GalleryController extends Controller
     {
         // Validate the request input
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,webp,jpg,gif|max:2048',
         ]);
 
         // Handle the image upload
