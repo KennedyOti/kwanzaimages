@@ -19,13 +19,12 @@ class ManageSalesController extends Controller
 
         // Apply filters based on request input
         // Apply filters based on request input
+        // Apply filters based on request input
         if ($request->has('search') && !empty($request->search)) {
             $searchTerm = $request->search;
-            $startDate = $request->start_date ?? null;
-            $endDate = $request->end_date ?? null;
             $specificDate = $request->date ?? null;
 
-            $query->where(function ($q) use ($searchTerm, $startDate, $endDate, $specificDate) {
+            $query->where(function ($q) use ($searchTerm, $specificDate) {
                 $q->where('client_name', 'LIKE', '%' . $searchTerm . '%')
                     ->orWhere('client_contact', 'LIKE', '%' . $searchTerm . '%')
                     ->orWhereHas('service', function ($q) use ($searchTerm) {
@@ -41,18 +40,12 @@ class ManageSalesController extends Controller
                         $q->where('name', 'LIKE', '%' . $searchTerm . '%');
                     });
 
-                // Date Range Filter
-                if ($startDate && $endDate) {
-                    $q->whereBetween('created_at', [$startDate, $endDate]);
-                }
-
-                // Specific Date Filter
+                // Add specific date filter
                 if ($specificDate) {
                     $q->whereDate('created_at', $specificDate);
                 }
             });
         }
-
 
         $sales = $query->paginate(9);
 
