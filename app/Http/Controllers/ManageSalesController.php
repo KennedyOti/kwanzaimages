@@ -18,9 +18,14 @@ class ManageSalesController extends Controller
         $query = Sale::with('service', 'branch', 'user');
 
         // Apply filters based on request input
+        // Apply filters based on request input
         if ($request->has('search') && !empty($request->search)) {
             $searchTerm = $request->search;
-            $query->where(function ($q) use ($searchTerm) {
+            $startDate = $request->start_date ?? null;
+            $endDate = $request->end_date ?? null;
+            $specificDate = $request->date ?? null;
+
+            $query->where(function ($q) use ($searchTerm, $startDate, $endDate, $specificDate) {
                 $q->where('client_name', 'LIKE', '%' . $searchTerm . '%')
                     ->orWhere('client_contact', 'LIKE', '%' . $searchTerm . '%')
                     ->orWhereHas('service', function ($q) use ($searchTerm) {
@@ -35,8 +40,19 @@ class ManageSalesController extends Controller
                     ->orWhereHas('user', function ($q) use ($searchTerm) {
                         $q->where('name', 'LIKE', '%' . $searchTerm . '%');
                     });
+
+                // Date Range Filter
+                if ($startDate && $endDate) {
+                    $q->whereBetween('created_at', [$startDate, $endDate]);
+                }
+
+                // Specific Date Filter
+                if ($specificDate) {
+                    $q->whereDate('created_at', $specificDate);
+                }
             });
         }
+
 
         $sales = $query->paginate(9);
 
