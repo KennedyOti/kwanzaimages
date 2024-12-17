@@ -46,7 +46,7 @@ class TeamsController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'role' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'nullable|image|mimes:jpeg,png,webp,jpg|max:2048',
         ]);
 
         // Check if a new image is uploaded
