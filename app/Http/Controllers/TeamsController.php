@@ -20,7 +20,7 @@ class TeamsController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'role' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,webp,jpg|max:2048',
         ]);
 
         // Store the image in public/uploads/teams
