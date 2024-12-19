@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/users', [UsersController::class, 'index'])->name('user.index');
 
     // Manage Bookings Routes (for admins and employees)
-    Route::middleware('checkrole:admin')->group(function () {
+    Route::middleware('checkrole:admin,employee')->group(function () {
         Route::get('/manage-bookings', [ManageBookingsController::class, 'index'])->name('managebookings.index'); // View all bookings
         Route::get('/manage-booking/{id}/edit', [ManageBookingsController::class, 'edit'])->name('managebookings.edit'); // Edit booking
         Route::put('/manage-booking/{id}', [ManageBookingsController::class, 'update'])->name('managebookings.update'); // Update booking
@@ -38,7 +38,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/manage-booking/{id}/confirm', [ManageBookingsController::class, 'confirm'])->name('managebookings.confirm'); // Confirm booking
     });
 
-    
+
 
     // Manage Blogs Routes
     Route::get('/manageblogs', [ManageBlogController::class, 'index'])->name('manageblog.index');
