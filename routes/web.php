@@ -38,8 +38,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/manage-booking/{id}/confirm', [ManageBookingsController::class, 'confirm'])->name('managebookings.confirm'); // Confirm booking
     });
 
-
-
     // Manage Blogs Routes
     Route::get('/manageblogs', [ManageBlogController::class, 'index'])->name('manageblog.index');
     Route::get('/manageblog/create', [ManageBlogController::class, 'create'])->name('manageblog.create');
@@ -90,10 +88,6 @@ Route::middleware('auth')->group(function () {
         Route::get('/sales/print', [ManageSalesController::class, 'print'])->name('sales.print');
         Route::put('/sales/{id}/change-status', [ManageSalesController::class, 'changeStatus'])->name('sales.changeStatus');
     });
-
-
-
-
 
     require_once 'profile.php';
 });
