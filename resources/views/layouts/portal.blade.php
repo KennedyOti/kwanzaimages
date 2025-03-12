@@ -591,7 +591,7 @@
                                                                     <a class="dropdown-item" href="#">My Balance</a>--->
                                                 <div class="dropdown-divider"></div>
                                                 <a class="dropdown-item"
-                                                    href="{{ route('profile.edit', Auth::user()->id) }}">Account
+                                                    href="#">Account
                                                     Setting</a>
                                                 <div class="dropdown-divider"></div>
                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
