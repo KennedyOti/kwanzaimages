@@ -19,22 +19,7 @@ const imageSets = [
         { src: "assets/images/p19.jpg", alt: "Gallery Image 5" },
         { src: "assets/images/p23.jpg", alt: "Gallery Image 6" },
     ],
-    [
-        { src: "assets/images/p7.jpg", alt: "Gallery Image 7" },
-        { src: "assets/images/p8.jpg", alt: "Gallery Image 8" },
-        { src: "assets/images/p9.jpg", alt: "Gallery Image 9" },
-        { src: "assets/images/p10.jpg", alt: "Gallery Image 10" },
-        { src: "assets/images/p19.jpg", alt: "Gallery Image 11" },
-        { src: "assets/images/p12.jpg", alt: "Gallery Image 12" },
-    ],
-    [
-        { src: "assets/images/p13.jpg", alt: "Gallery Image 13" },
-        { src: "assets/images/p14.jpg", alt: "Gallery Image 14" },
-        { src: "assets/images/p15.jpg", alt: "Gallery Image 15" },
-        { src: "assets/images/p16.jpg", alt: "Gallery Image 16" },
-        { src: "assets/images/p17.jpg", alt: "Gallery Image 17" },
-        { src: "assets/images/p18.jpg", alt: "Gallery Image 18" },
-    ],
+    
 ];
 
 let currentSet = 0; // Index of the current image set

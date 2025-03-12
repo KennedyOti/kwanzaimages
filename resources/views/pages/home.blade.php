@@ -171,15 +171,16 @@
 <!-- End of Gallery Section -->
 
 <!-- Services Section -->
-<section id="services" class="services-section">
+<section id="services" class="services-section py-5">
     <div class="container">
-        <h2 class="text-center section-title">Our Services</h2>
-        <div class="row" id="services-row">
+        <h2 class="text-center section-title mb-4">Our Services</h2>
+        <div class="row justify-content-center" id="services-row">
+
             <!-- Service 1 -->
-            <div class="col-md-4 text-center service-item">
+            <div class="col-md-4 col-sm-6">
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/p50.jpg') }}" alt="Wrap Photography" class="service-img" />
-                    <div class="service-overlay">
+                    <img src="{{ asset('assets/images/p50.jpg') }}" alt="Wrap Photography" class="service-img">
+                    <div class="service-content">
                         <h3>Wrap Photography</h3>
                         <p>Creative and artistic photoshoots featuring beautifully wrapped setups, perfect for newborns, maternity sessions, or styled portraits.</p>
                     </div>
@@ -187,10 +188,10 @@
             </div>
 
             <!-- Service 2 -->
-            <div class="col-md-4 text-center service-item">
+            <div class="col-md-4 col-sm-6">
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/wed.jpg') }}" alt="Wedding Photography" class="service-img" />
-                    <div class="service-overlay">
+                    <img src="{{ asset('assets/images/wed.jpg') }}" alt="Wedding Photography" class="service-img">
+                    <div class="service-content">
                         <h3>Wedding Photography</h3>
                         <p>Documenting your love story with timeless images that capture the elegance, joy, and emotion of your special day.</p>
                     </div>
@@ -198,10 +199,10 @@
             </div>
 
             <!-- Service 3 -->
-            <div class="col-md-4 text-center service-item">
+            <div class="col-md-4 col-sm-6">
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/p5.jpg') }}" alt="Outdoor Photography" class="service-img" />
-                    <div class="service-overlay">
+                    <img src="{{ asset('assets/images/p5.jpg') }}" alt="Outdoor Photography" class="service-img">
+                    <div class="service-content">
                         <h3>Outdoor Photography</h3>
                         <p>Capturing stunning portraits in natural settings, bringing your story to life with the beauty of the outdoors.</p>
                     </div>
@@ -209,10 +210,10 @@
             </div>
 
             <!-- Service 4 -->
-            <div class="col-md-4 text-center service-item">
+            <div class="col-md-4 col-sm-6">
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/p15.jpg') }}" alt="Traditional Photography" class="service-img" />
-                    <div class="service-overlay">
+                    <img src="{{ asset('assets/images/p15.jpg') }}" alt="Traditional Photography" class="service-img">
+                    <div class="service-content">
                         <h3>Traditional Photography</h3>
                         <p>Capturing timeless moments with classic techniques and attention to detail for all types of events.</p>
                     </div>
@@ -220,10 +221,10 @@
             </div>
 
             <!-- Service 5 -->
-            <div class="col-md-4 text-center service-item">
+            <div class="col-md-4 col-sm-6">
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/p8.jpg') }}" alt="Studio Photography" class="service-img" />
-                    <div class="service-overlay">
+                    <img src="{{ asset('assets/images/p8.jpg') }}" alt="Studio Photography" class="service-img">
+                    <div class="service-content">
                         <h3>Studio Photography</h3>
                         <p>Expertly crafted portraits and commercial shoots with controlled lighting and personalized setups.</p>
                     </div>
@@ -231,10 +232,10 @@
             </div>
 
             <!-- Service 6 -->
-            <div class="col-md-4 text-center service-item">
+            <div class="col-md-4 col-sm-6">
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/p19.jpg') }}" alt="Graduation Photography" class="service-img" />
-                    <div class="service-overlay">
+                    <img src="{{ asset('assets/images/p19.jpg') }}" alt="Graduation Photography" class="service-img">
+                    <div class="service-content">
                         <h3>Graduation Photography</h3>
                         <p>Capturing the pride and joy of this special moment with stunning, memorable photos.</p>
                     </div>
@@ -245,6 +246,7 @@
     </div>
 </section>
 <!-- End of Services Section -->
+
 
 <!-- Mission & Vision Section -->
 <section class="mission-vision-section py-5" id="about-us">
@@ -262,7 +264,7 @@
                     <p>To deliver breathtaking photography that exceeds client expectations. With creativity, precision, and passion, we strive to immortalize your most cherished moments in stunning visual art that stands the test of time.</p>
                 </div>
             </div>
-            <br><br>
+            <br>
             <!-- Vision Card -->
             <div class="col-md-5">
                 <div class="info-card">

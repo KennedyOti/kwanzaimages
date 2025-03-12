@@ -818,97 +818,82 @@ html {
     margin-bottom: 50px;
 }
 
+/* Service Section */
+.services-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
 /* Service Card */
 .service-card {
-    position: relative;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    margin-bottom: 30px;
+}
+
+/* Service Card Hover Effect */
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* Service Image */
 .service-img {
     width: 100%;
-    height: 350px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 15px;
-    transition: transform 0.4s ease-in-out;
+    border-radius: 12px 12px 0 0;
 }
 
-/* Hover Effect */
-.service-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-}
-
-/* Hover Effect for Image */
-.service-card:hover .service-img {
-    transform: scale(1.1);
-}
-
-/* Service Overlay (Hover Details) */
-.service-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+/* Service Content */
+.service-content {
     padding: 20px;
+    text-align: center;
 }
 
-/* Show overlay on hover */
-.service-card:hover .service-overlay {
-    opacity: 1;
-}
-
-/* Overlay Title */
-.service-overlay h3 {
-    font-size: 1.8rem;
-    font-weight: bold;
+/* Service Title */
+.service-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
     margin-bottom: 10px;
 }
 
-/* Overlay Description */
-.service-overlay p {
-    font-size: 1.2rem;
+/* Service Description */
+.service-content p {
+    font-size: 1rem;
+    color: #666;
     line-height: 1.5;
 }
 
 /* Responsive Design */
 @media (max-width: 992px) {
     .service-img {
-        height: 300px;
+        height: 200px;
     }
 
-    .service-overlay h3 {
-        font-size: 1.5rem;
+    .service-content h3 {
+        font-size: 1.3rem;
     }
 
-    .service-overlay p {
-        font-size: 1rem;
+    .service-content p {
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 768px) {
     .service-img {
-        height: 250px;
+        height: 180px;
     }
 
-    .service-overlay h3 {
-        font-size: 1.3rem;
+    .service-content h3 {
+        font-size: 1.2rem;
     }
 
-    .service-overlay p {
+    .service-content p {
         font-size: 0.9rem;
     }
 }
