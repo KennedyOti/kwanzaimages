@@ -38,14 +38,12 @@ const imageSets = [
 ];
 
 let currentSet = 0; // Index of the current image set
-let loaderTimeout; // Timeout for hiding loader after 5s
 
 // Function to load images with loader effect
 function loadImages(index) {
     showLoader(); // Show loader before loading images
 
     const selectedSet = imageSets[index];
-    let imagesLoaded = 0;
     galleryRow.innerHTML = ""; // Clear existing images
 
     selectedSet.forEach((imgData) => {
@@ -83,8 +81,8 @@ function loadImages(index) {
         galleryRow.appendChild(imgContainer);
     });
 
-    // Hide loader after max 5s, even if all images are not loaded
-    loaderTimeout = setTimeout(hideLoader, 5000);
+    // **Force hide loader after 3 seconds, regardless of images loaded**
+    setTimeout(hideLoader, 3000);
 }
 
 // Show Loader
@@ -94,14 +92,11 @@ function showLoader() {
     loader.style.visibility = "visible";
 }
 
-// Hide Loader
+// Hide Loader Immediately After 3 Seconds
 function hideLoader() {
     if (!loader) return;
-    clearTimeout(loaderTimeout); // Ensure timeout doesn't stack up
-    setTimeout(() => {
-        loader.style.opacity = "0";
-        loader.style.visibility = "hidden";
-    }, 500); // Smooth fade-out transition
+    loader.style.opacity = "0";
+    loader.style.visibility = "hidden";
 }
 
 // Close Fullscreen Mode on Click
@@ -120,10 +115,10 @@ document.getElementById("next-btn")?.addEventListener("click", () => {
     loadImages(currentSet);
 });
 
-// Ensure loader disappears when all page resources are fully loaded OR after 5 seconds
+// Ensure loader disappears when all page resources are fully loaded OR after 3 seconds
 window.addEventListener("load", () => {
-    hideLoader(); // Ensure loader disappears
     loadImages(currentSet);
+    setTimeout(hideLoader, 3000); // **Force hide loader within 3 seconds**
 });
 
 // 🔥 Fix Infinite Loader on Login & Register Pages
