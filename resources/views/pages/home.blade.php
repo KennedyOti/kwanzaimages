@@ -262,7 +262,7 @@
                     <p>To deliver breathtaking photography that exceeds client expectations. With creativity, precision, and passion, we strive to immortalize your most cherished moments in stunning visual art that stands the test of time.</p>
                 </div>
             </div>
-
+            <br>
             <!-- Vision Card -->
             <div class="col-md-5">
                 <div class="info-card">

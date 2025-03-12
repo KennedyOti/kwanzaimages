@@ -38,6 +38,7 @@ const imageSets = [
 ];
 
 let currentSet = 0; // Index of the current image set
+let loaderTimeout; // Timeout for hiding loader after 5s
 
 // Function to load images with loader effect
 function loadImages(index) {
@@ -82,7 +83,8 @@ function loadImages(index) {
         galleryRow.appendChild(imgContainer);
     });
 
-    hideLoader(); // Hide loader after loading
+    // Hide loader after max 5s, even if all images are not loaded
+    loaderTimeout = setTimeout(hideLoader, 5000);
 }
 
 // Show Loader
@@ -95,10 +97,11 @@ function showLoader() {
 // Hide Loader
 function hideLoader() {
     if (!loader) return;
+    clearTimeout(loaderTimeout); // Ensure timeout doesn't stack up
     setTimeout(() => {
         loader.style.opacity = "0";
         loader.style.visibility = "hidden";
-    }, 500); // Slight delay for smooth transition
+    }, 500); // Smooth fade-out transition
 }
 
 // Close Fullscreen Mode on Click
@@ -117,7 +120,7 @@ document.getElementById("next-btn")?.addEventListener("click", () => {
     loadImages(currentSet);
 });
 
-// Ensure loader disappears when all page resources are fully loaded
+// Ensure loader disappears when all page resources are fully loaded OR after 5 seconds
 window.addEventListener("load", () => {
     hideLoader(); // Ensure loader disappears
     loadImages(currentSet);
