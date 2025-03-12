@@ -576,14 +576,12 @@
                                                         <img src="{{ asset('storage/' . Auth::user()->profile_picture) }}"
                                                             alt="Profile Picture" class="avatar-img rounded-circle" />
                                                     </div>
-                                                    <!---
                                                     <div class="u-text">
                                                         <h4>{{ Auth::user()->name }}</h4>
                                                         <p class="text-muted">{{ Auth::user()->email }}</p>
-                                                        <a href="{{ route('profile.edit', Auth::user()->id) }}"
+                                                        <a href="#"
                                                             class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                                     </div>
-                                                    --->
                                                 </div>
                                             </li>
                                             <li>
