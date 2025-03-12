@@ -44,7 +44,7 @@
             <!-- Logo and Brand Name -->
             <div class="d-flex align-items-center">
                 <img src="{{ asset('assets/images/logo.jpg') }}" alt="Logo" class="navbar-logo">
-                <a class="navbar-brand" href="{{ route('home') }}">KWANZA IMAGES STUDIO</a>
+                <a class="navbar-brand d-none d-md-block" href="{{ route('home') }}">KWANZA IMAGES STUDIO</a>
             </div>
 
             <!-- Navbar toggler for mobile view -->
@@ -80,11 +80,11 @@
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary btn-sm px-3" href="{{ route('login') }}" onclick="window.location=this.href; return false;">Sign In</a>
                     </li>
-
                 </ul>
             </div>
         </div>
     </nav>
+
 
 
 

@@ -102,6 +102,13 @@ body {
     color: white !important;
 }
 
+/* Hide Brand Name on Small Screens */
+@media (max-width: 768px) {
+    .navbar-brand {
+        display: none !important;
+    }
+}
+
 /* Navbar Scrolled Effect */
 .scrolled {
     background-color: rgba(0, 86, 179, 0.9);
@@ -151,23 +158,10 @@ body {
         height: 60px;
     }
 
-    .navbar-brand {
-        font-size: 1.3rem;
-    }
-
     .navbar-toggler {
         border: none;
         outline: none;
     }
-}
-/* end of navbar */
-
-/* Slideshow Section */
-#slideshow {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
 }
 
 /* Background Image for Slides */
