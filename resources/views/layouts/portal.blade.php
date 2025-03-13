@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/kaiadmin.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-    <!-- Google Fonts (Optimized) -->
+    <!-- Google Fonts -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
     <!-- Custom CSS -->
@@ -24,6 +24,7 @@
         .main-sidebar {
             background: linear-gradient(135deg, #001f3f, #003366);
             color: white;
+            transition: all 0.3s ease-in-out;
         }
 
         .nav-item a {
@@ -55,6 +56,25 @@
         .dropdown-menu a:hover {
             background: #004aad;
             border-radius: 5px;
+        }
+
+        /* Ensure form inputs retain values properly */
+        input,
+        textarea,
+        select {
+            background: white !important;
+            color: black !important;
+            transition: none !important;
+            box-shadow: none !important;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            background: white !important;
+            color: black !important;
+            border-color: #004aad !important;
+            outline: none !important;
         }
 
         /* Responsive Fix */
@@ -154,14 +174,6 @@
             <div class="container mt-4">
                 @yield('content')
             </div>
-
-            <!-- Footer -->
-            <footer class="footer mt-4">
-                <div class="container-fluid d-flex justify-content-between">
-                    <span class="text-muted">2024, Kwanza Images Photography</span>
-                    <a href="http://www.dijisoftwares.com" class="text-decoration-none">Developed by Dijisoftwares ICT Hub</a>
-                </div>
-            </footer>
         </div>
     </div>
 

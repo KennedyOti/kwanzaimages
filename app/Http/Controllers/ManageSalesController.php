@@ -86,5 +86,58 @@ class ManageSalesController extends Controller
         return response()->json(['success' => 'Status updated successfully!']);
     }
 
-    // Other methods (edit, update, destroy, print) remain unchanged
+    /**
+     * Show the form for editing the specified sale.
+     */
+    public function edit($id)
+    {
+        $sale = Sale::findOrFail($id);
+        $services = Service::all();
+        $branches = Branch::all();
+
+        return view('portal.sales.edit', compact('sale', 'services', 'branches'));
+    }
+
+    /**
+     * Update the specified sale in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'service_id' => 'required|exists:services,id',
+            'branch_id' => 'required|exists:branches,id',
+            'quantity' => 'required|integer|min:1',
+            'amount' => 'required|numeric|min:1',
+            'client_name' => 'required|string|max:255',
+            'client_contact' => 'required|string|max:20',
+            'status' => 'required|in:pending,completed,canceled',
+        ]);
+
+        $sale = Sale::findOrFail($id);
+        $sale->update($request->all());
+
+        return redirect()->route('sales.index')->with('success', 'Sale updated successfully!');
+    }
+
+    /**
+     * Remove the specified sale from storage.
+     */
+    public function destroy($id)
+    {
+        $sale = Sale::findOrFail($id);
+        $sale->delete();
+
+        return redirect()->route('sales.index')->with('success', 'Sale deleted successfully!');
+    }
+
+    /**
+     * Print all sales as a PDF report.
+     */
+    public function print()
+    {
+        $sales = Sale::with('service', 'branch', 'user')->get();
+
+        $pdf = Pdf::loadView('portal.sales.printsales', compact('sales'));
+        return $pdf->download('sales_report.pdf');
+    }
 }
