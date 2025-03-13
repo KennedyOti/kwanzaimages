@@ -1117,12 +1117,16 @@ html {
     color: #ffcc00;
 }
 
-/* Lead Text */
+/* Lead Text (Justified & Well-Spaced) */
 .kwanza-show-section .lead {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.8;
     color: #f1f1f1;
     margin-bottom: 20px;
+    text-align: justify; /* ✅ Fully justified text */
+    text-justify: inter-word; /* ✅ Ensures even spacing */
+    word-spacing: 2px; /* ✅ Keeps uniform spacing */
+    letter-spacing: 0.5px; /* ✅ Slight improvement for readability */
 }
 
 /* Watch More Button */
@@ -1134,6 +1138,7 @@ html {
     border-radius: 50px;
     text-transform: uppercase;
     transition: all 0.3s ease-in-out;
+    display: inline-block;
 }
 
 .btn-watch:hover {
@@ -1173,6 +1178,8 @@ html {
 
     .kwanza-show-section .lead {
         font-size: 1rem;
+        word-spacing: 1.5px; /* ✅ Adjusted for better mobile layout */
+        letter-spacing: 0.3px;
     }
 
     .video-container {
@@ -1183,6 +1190,36 @@ html {
         font-size: 0.9rem;
     }
 }
+
+/* ✅ Fixing Spacing on Small Screens */
+@media (max-width: 768px) {
+    .kwanza-show-section .lead {
+        font-size: 0.95rem;
+        word-spacing: 1.2px;
+        letter-spacing: 0.3px;
+        line-height: 1.7;
+    }
+
+    .btn-watch {
+        font-size: 0.85rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .kwanza-show-section .lead {
+        font-size: 0.9rem;
+        word-spacing: 1px; /* ✅ Reduce spacing for compact text */
+        letter-spacing: 0.2px;
+        line-height: 1.6;
+    }
+
+    .btn-watch {
+        font-size: 0.8rem;
+        padding: 8px 18px;
+    }
+}
+
 /* Contact Section */
 .contact-section {
     background: #0a192f; /* Deep navy blue */
