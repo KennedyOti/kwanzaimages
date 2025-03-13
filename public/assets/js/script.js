@@ -1,32 +1,6 @@
 // Select Gallery Row
 const galleryRow = document.getElementById("gallery-row");
 
-// Function to Force Hard Reload and Clear Cache
-function clearCacheAndReload() {
-    localStorage.removeItem("cacheCleared"); // Reset cache flag
-    sessionStorage.clear(); // Clear session storage
-    caches.keys().then(function (names) {
-        for (let name of names) caches.delete(name); // Clear all cached resources
-    });
-
-    // Append timestamp to CSS/JS to force fresh load
-    const stylesheets = document.querySelectorAll("link[rel='stylesheet']");
-    stylesheets.forEach((sheet) => {
-        sheet.href = sheet.href.split("?")[0] + "?v=" + new Date().getTime();
-    });
-
-    // Force reload without cache
-    window.location.reload(true);
-}
-
-// Check if Cache has Already Been Cleared
-if (!localStorage.getItem("cacheCleared")) {
-    localStorage.setItem("cacheCleared", "true");
-    clearCacheAndReload();
-}
-
-// Run Cache Clearing Function on Load
-clearCacheAndReload();
 
 // Fullscreen Image Container
 const fullscreenContainer = document.createElement("div");
