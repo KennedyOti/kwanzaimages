@@ -1003,40 +1003,56 @@ html {
     margin-bottom: 50px;
 }
 
-/* Service Section */
-.services-section {
-    background-color: #f8f9fa;
-    padding: 60px 0;
-}
-
 /* Service Card */
 .service-card {
     background: white;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px;
+    height: 100%; /* Ensures uniform height */
 }
 
 /* Service Card Hover Effect */
 .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Container */
+.service-img-container {
+    width: 100%;
+    height: 230px; /* Adjust height to ensure consistency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: #f0f0f0; /* Light background to handle different image sizes */
 }
 
 /* Service Image */
 .service-img {
     width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 12px 12px 0 0;
+    height: 100%;
+    object-fit: contain; /* Ensures full image visibility */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.service-card:hover .service-img {
+    transform: scale(1.05);
+    filter: brightness(90%);
 }
 
 /* Service Content */
 .service-content {
     padding: 20px;
     text-align: center;
+    flex-grow: 1; /* Ensures uniform height */
 }
 
 /* Service Title */
@@ -1056,7 +1072,7 @@ html {
 
 /* Responsive Design */
 @media (max-width: 992px) {
-    .service-img {
+    .service-img-container {
         height: 200px;
     }
 
@@ -1070,7 +1086,7 @@ html {
 }
 
 @media (max-width: 768px) {
-    .service-img {
+    .service-img-container {
         height: 180px;
     }
 
@@ -1081,6 +1097,15 @@ html {
     .service-content p {
         font-size: 0.9rem;
     }
+}
+
+/* Add spacing between service cards */
+.gx-4 {
+    --bs-gutter-x: 1.5rem; /* Horizontal space */
+}
+
+.gy-4 {
+    --bs-gutter-y: 2rem; /* Vertical space */
 }
 
 /* Mission & Vision Section */
