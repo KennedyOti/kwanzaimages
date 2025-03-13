@@ -12,12 +12,14 @@ const loader = document.querySelector(".loader-container");
 // Image Array (Non-Dynamic)
 const imageSets = [
     [
-        { src: "assets/images/p3.jpg", alt: "Gallery Image 1" },
+        { src: "assets/images/p3.webp", alt: "Gallery Image 1" },
         { src: "assets/images/p4.jpg", alt: "Gallery Image 2" },
         { src: "assets/images/p5.jpg", alt: "Gallery Image 3" },
         { src: "assets/images/p6.jpg", alt: "Gallery Image 4" },
         { src: "assets/images/p19.jpg", alt: "Gallery Image 5" },
         { src: "assets/images/p23.jpg", alt: "Gallery Image 6" },
+        { src: "assets/images/p50.jpg", alt: "Gallery Image 7" },
+        { src: "assets/images/stud.webp", alt: "Gallery Image 8" },
     ],
     
 ];

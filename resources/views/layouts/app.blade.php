@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="m_gTdDMrO9ubkJXM-kQ0AN4YaqhUVEk72-kzgYlKNkI" />
-    <meta property="og:site_name"
-        content="Kwanza Images Studio - Your premier photography and videography studio in Njoro Town, Kenya." />
+
+    <meta property="og:site_name" content="Kwanza Images Studio - Your premier photography and videography studio in Njoro Town, Kenya." />
     <meta property="og:title" content="Home - KWANZA IMAGES" />
 
     <meta name="description"
@@ -18,16 +18,34 @@
          Outdoor Photography Nakuru, Professional Photography Kenya, Njoro Photography Services, Videography Nakuru County, Wedding Coverage Kenya, 
          Event Coverage Njoro, Photography and Videography Kenya, Creative Photography Nakuru, Kwanza Images Njoro, Photography Studio Kenya" />
 
-
-
-
-
     <title>KWANZA IMAGES STUDIO</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+
+    <!-- Critical CSS (Above-the-Fold Styles) -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+    </style>
+
+    <!-- Preload and Load Stylesheets Asynchronously -->
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{ asset('assets/css/style.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    </noscript>
+
+    <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/images/favicon.ico') }}">
 
+    <!-- Defer JavaScript -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="{{ asset('assets/js/script.js') }}"></script>
 
 </head>
 

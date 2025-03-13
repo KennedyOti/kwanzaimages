@@ -16,7 +16,7 @@
         <!-- Slides -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="{{ asset('assets/images/p7.webp') }}" class="d-block w-100 slide-image" alt="Slide 1">
+                <img src="{{ asset('assets/images/p7.jpg') }}" class="d-block w-100 slide-image" alt="Slide 1">
                 <div class="carousel-caption text-center">
                     <h1 class="animate-fade-in">KWANZA IMAGES STUDIO</h1>
                     <h2 class="animate-slide-up">One Shot at a Time</h2>
@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="{{ asset('assets/images/p14.webp') }}" class="d-block w-100 slide-image" alt="Slide 2">
+                <img src="{{ asset('assets/images/p14.jpg') }}" class="d-block w-100 slide-image" alt="Slide 2">
                 <div class="carousel-caption text-center">
                     <h1 class="animate-fade-in">Timeless Photography</h1>
                     <h2 class="animate-slide-up">From Moments to Masterpieces</h2>
@@ -94,7 +94,7 @@
             <!-- CEO -->
             <div class="col-lg-3 col-md-6">
                 <div class="team-card">
-                    <img src="{{ asset('assets/images/ceo.jpg') }}" alt="CEO" class="team-img" loading="lazy">
+                    <img src="{{ asset('assets/images/ceo.webp') }}" alt="CEO" class="team-img" loading="lazy">
                     <div class="team-info">
                         <h4>Chief Executive Officer</h4>
                         <p>Yabesh Mabea</p>
@@ -105,7 +105,7 @@
             <!-- Chief Operations -->
             <div class="col-lg-3 col-md-6">
                 <div class="team-card">
-                    <img src="{{ asset('assets/images/chiefop.jpg') }}" alt="Chief Operations" class="team-img" loading="lazy">
+                    <img src="{{ asset('assets/images/chiefop.webp') }}" alt="Chief Operations" class="team-img" loading="lazy">
                     <div class="team-info">
                         <h4>Chief Operations Officer</h4>
                         <p>Akengo Omusale</p>
@@ -116,7 +116,7 @@
             <!-- Customer Care -->
             <div class="col-lg-3 col-md-6">
                 <div class="team-card">
-                    <img src="{{ asset('assets/images/customer care1.jpg') }}" alt="Customer Care" class="team-img" loading="lazy">
+                    <img src="{{ asset('assets/images/customer care1.webp') }}" alt="Customer Care" class="team-img" loading="lazy">
                     <div class="team-info">
                         <h4>Customer Care</h4>
                         <p>Georgina</p>
@@ -127,7 +127,7 @@
             <!-- Director -->
             <div class="col-lg-3 col-md-6">
                 <div class="team-card">
-                    <img src="{{ asset('assets/images/director.jpg') }}" alt="Director" class="team-img" loading="lazy">
+                    <img src="{{ asset('assets/images/director.webp') }}" alt="Director" class="team-img" loading="lazy">
                     <div class="team-info">
                         <h4>Director</h4>
                         <p>Earnest Nyakiba</p>
@@ -178,7 +178,7 @@
             <!-- Service 2 -->
             <div class="col-md-4 col-sm-6">
                 <div class="service-card">
-                    <img src="{{ asset('assets/images/wed.jpg') }}" alt="Wedding Photography" class="service-img">
+                    <img src="{{ asset('assets/images/wed.webp') }}" alt="Wedding Photography" class="service-img">
                     <div class="service-content">
                         <h3>Wedding Photography</h3>
                         <p>Documenting your love story with timeless images that capture the elegance, joy, and emotion of your special day.</p>
