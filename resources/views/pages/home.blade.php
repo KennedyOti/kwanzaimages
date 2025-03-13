@@ -72,20 +72,7 @@
 
                     <div class="about-text-block animate-slide-up">
                         <p>
-                            Welcome to <b>Kwanza Images Studio</b>, your trusted destination for professional
-                            photography and videography in <b>Njoro Town, Nakuru County</b>.
-                            Conveniently located at <b>Njoro Posta</b>, we are dedicated to capturing your most cherished
-                            moments with <b>precision and creativity</b>.
-                        </p>
-                        <p>
-                            Whether it's <b>stunning portraits, family photos, captivating landscapes, or event coverage</b>,
-                            our expert team delivers <b>high-quality</b> results that exceed expectations.
-                            We also offer <b>comprehensive wedding photography</b> to ensure every detail of your special day
-                            is beautifully preserved.
-                        </p>
-                        <p>
-                            Choose <b>Kwanza Images</b> for <b>unmatched quality, professionalism, and a personalized touch</b>
-                            that brings your vision to life.
+                            Welcome to Kwanza Images Studio, your trusted destination for professional photography and videography in Njoro Town, Nakuru County. Conveniently located at Njoro Egerton, we specialize in capturing your most cherished moments with precision and creativity. Whether it's stunning portraits, family photos, captivating landscapes, or event coverage, our expert team delivers high-quality results that exceed expectations. We also offer comprehensive wedding photography to ensure every detail of your special day is beautifully preserved. Choose Kwanza Images for unmatched quality, professionalism, and a personalized touch that brings your vision to life.
                         </p>
                     </div>
 
