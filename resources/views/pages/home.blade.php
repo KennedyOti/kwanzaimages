@@ -84,8 +84,6 @@
 </section>
 <!-- End of About Section -->
 
-
-
 <!-- Our Team Section -->
 <section id="our-team" class="team-section">
     <div class="container">
@@ -94,7 +92,9 @@
             <!-- CEO -->
             <div class="col-lg-3 col-md-6">
                 <div class="team-card">
-                    <img src="{{ asset('assets/images/ceo.webp') }}" alt="CEO" class="team-img" loading="lazy">
+                    <div class="team-img-container">
+                        <img src="{{ asset('assets/images/ceo.webp') }}" alt="CEO" class="team-img" loading="lazy">
+                    </div>
                     <div class="team-info">
                         <h4>Chief Executive Officer</h4>
                         <p>Yabesh Mabea</p>
@@ -105,7 +105,9 @@
             <!-- Chief Operations -->
             <div class="col-lg-3 col-md-6">
                 <div class="team-card">
-                    <img src="{{ asset('assets/images/chiefop.webp') }}" alt="Chief Operations" class="team-img" loading="lazy">
+                    <div class="team-img-container">
+                        <img src="{{ asset('assets/images/chiefop.webp') }}" alt="Chief Operations" class="team-img" loading="lazy">
+                    </div>
                     <div class="team-info">
                         <h4>Chief Operations Officer</h4>
                         <p>Akengo Omusale</p>
@@ -116,7 +118,9 @@
             <!-- Customer Care -->
             <div class="col-lg-3 col-md-6">
                 <div class="team-card">
-                    <img src="{{ asset('assets/images/customer care1.webp') }}" alt="Customer Care" class="team-img" loading="lazy">
+                    <div class="team-img-container">
+                        <img src="{{ asset('assets/images/customer care1.webp') }}" alt="Customer Care" class="team-img" loading="lazy">
+                    </div>
                     <div class="team-info">
                         <h4>Customer Care</h4>
                         <p>Georgina</p>
@@ -127,7 +131,9 @@
             <!-- Director -->
             <div class="col-lg-3 col-md-6">
                 <div class="team-card">
-                    <img src="{{ asset('assets/images/director.webp') }}" alt="Director" class="team-img" loading="lazy">
+                    <div class="team-img-container">
+                        <img src="{{ asset('assets/images/director.webp') }}" alt="Director" class="team-img" loading="lazy">
+                    </div>
                     <div class="team-info">
                         <h4>Director</h4>
                         <p>Earnest Nyakiba</p>

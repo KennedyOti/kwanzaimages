@@ -736,7 +736,7 @@ html {
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-align: center;
     padding: 20px;
@@ -745,17 +745,27 @@ html {
 
 .team-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Team Image Container */
+.team-img-container {
+    width: 100%;
+    height: 280px; /* Adjusted to maintain full visibility */
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eaeaea; /* Background color to handle different image sizes */
 }
 
 /* Team Image */
 .team-img {
     width: 100%;
-    max-width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    object-fit: cover;
-    transition: transform 0.3s ease, filter 0.3s ease;
+    height: 100%;
+    object-fit: contain; /* Ensures full image visibility without cropping */
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
 }
 
 .team-card:hover .team-img {
@@ -769,16 +779,74 @@ html {
 }
 
 .team-info h4 {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
-    color: #3ea1ff;
+    color: #007bff;
     margin-bottom: 5px;
 }
 
 .team-info p {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #555;
     margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .team-img-container {
+        height: 250px;
+    }
+
+    .team-info h4 {
+        font-size: 1.2rem;
+    }
+
+    .team-info p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-img-container {
+        height: 220px;
+    }
+
+    .team-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .team-info p {
+        font-size: 0.95rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .team-img-container {
+        height: 250px;
+    }
+
+    .team-info h4 {
+        font-size: 1.2rem;
+    }
+
+    .team-info p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .team-img-container {
+        height: 220px;
+    }
+
+    .team-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .team-info p {
+        font-size: 0.95rem;
+    }
 }
 
 /* Animations */
