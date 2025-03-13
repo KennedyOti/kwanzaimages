@@ -1,111 +1,164 @@
 @extends('layouts.portal')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-mt-5">
-                <h1>Sales Management</h1>
-                <div class="card">
-                    <div class="card-header">
-                        Manage Sales
-                        <a href="{{ route('sales.create') }}" class="btn btn-success btn-sm float-end">Add New Sale</a>
+<div class="container-fluid"> <!-- Use container-fluid for full width -->
+    <div class="row justify-content-center">
+        <div class="col-12 mt-5">
+            <h1>Sales Management</h1>
+            <div class="card">
+                <div class="card-header">
+                    Manage Sales
+                    <a href="{{ route('sales.create') }}" class="btn btn-success btn-sm float-end">Add New Sale</a>
+                </div>
+
+                <div class="card-body">
+                    <!-- Success and Error Message Pop-ups -->
+                    @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
-
-                    <div class="card-body">
-                        <!-- Search Form -->
-                        <form method="GET" action="{{ route('sales.index') }}" class="mb-3">
-                            <div class="input-group">
-                                <input type="text" name="search" class="form-control" placeholder="Search sales..."
-                                    value="{{ request('search') }}">
-                                <button type="submit" class="btn btn-primary">Search</button>
-                            </div>
-                        </form>
-
-                        <!-- Success and Error Message Pop-ups -->
-                        @if (session('success'))
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                {{ session('success') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                        @elseif(session('error'))
-                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                {{ session('error') }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"
-                                    aria-label="Close"></button>
-                            </div>
-                        @endif
-
-                        <!-- Sales Table -->
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Sale_Id</th>
-                                    <th>Service</th>
-                                    <th>Branch</th>
-                                    <th>Client Name</th>
-                                    <th>Client Contact</th>
-                                    <th>Status</th>
-                                    <th>Quantity</th>
-                                    <th>Amount</th>
-                                    <th>Recorded By</th>
-                                    <th>Date Recorded</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($sales as $sale)
-                                    <tr>
-                                        <td>{{ $sale->id }}</td>
-                                        <td>{{ $sale->service->title }}</td>
-                                        <td>{{ $sale->branch->name }}</td>
-                                        <td>{{ $sale->client_name }}</td>
-                                        <td>{{ $sale->client_contact }}</td>
-                                        <td>
-                                            <form action="{{ route('sales.changeStatus', $sale->id) }}" method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <select name="status" class="form-select" onchange="this.form.submit()">
-                                                    <option value="pending"
-                                                        {{ $sale->status === 'pending' ? 'selected' : '' }}>Pending
-                                                    </option>
-                                                    <option value="completed"
-                                                        {{ $sale->status === 'completed' ? 'selected' : '' }}>Completed
-                                                    </option>
-                                                    <option value="canceled"
-                                                        {{ $sale->status === 'canceled' ? 'selected' : '' }}>Canceled
-                                                    </option>
-                                                </select>
-                                            </form>
-                                        </td>
-                                        <td>{{ $sale->quantity }}</td>
-                                        <td>{{ number_format($sale->amount, 2) }}</td>
-                                        <td>{{ $sale->user->name }}</td>
-                                        <td>{{ $sale->created_at }}</td>
-                                        <td>
-                                            @if (auth()->user()->role === 'admin')
-                                                <a href="{{ route('sales.edit', $sale->id) }}"
-                                                    class="btn btn-warning btn-sm">Edit</a>
-                                                <form action="{{ route('sales.destroy', $sale->id) }}" method="POST"
-                                                    style="display:inline;">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                                </form>
-                                            @endif
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-
-                        <!-- Pagination Links -->
-                        <div class="d-flex justify-content-center mt-3">
-                            {{ $sales->links('pagination::bootstrap-4') }}
-                        </div>
+                    @elseif(session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
+                    @endif
+
+                    <!-- Sales Table with DataTables -->
+                    <table id="salesTable" class="table table-bordered table-striped display responsive nowrap" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Sale_Id</th>
+                                <th>Service</th>
+                                <th>Branch</th>
+                                <th>Client Name</th>
+                                <th>Client Contact</th>
+                                <th>Status</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                                <th>Recorded By</th>
+                                <th>Date Recorded</th>
+                                <th>Actions</th>
+                            </tr>
+                            <!-- Add search fields for each column -->
+                            <tr>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search ID" data-column="0"></th>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search Service" data-column="1"></th>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search Branch" data-column="2"></th>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search Client Name" data-column="3"></th>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search Client Contact" data-column="4"></th>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search Status" data-column="5"></th>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search Quantity" data-column="6"></th>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search Amount" data-column="7"></th>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search Recorded By" data-column="8"></th>
+                                <th><input type="text" class="form-control filter-input" placeholder="Search Date" data-column="9"></th>
+                                <th></th> <!-- No search for Actions column -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- DataTables will populate this -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Include DataTables CSS and JS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap5.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // Initialize DataTable
+        var table = $('#salesTable').DataTable({
+            processing: true,
+            serverSide: true,
+            responsive: true, // Enable responsive design
+            ajax: "{{ route('sales.data') }}", // Route to fetch data
+            columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'service.title',
+                    name: 'service.title'
+                },
+                {
+                    data: 'branch.name',
+                    name: 'branch.name'
+                },
+                {
+                    data: 'client_name',
+                    name: 'client_name'
+                },
+                {
+                    data: 'client_contact',
+                    name: 'client_contact'
+                },
+                {
+                    data: 'status',
+                    name: 'status'
+                },
+                {
+                    data: 'quantity',
+                    name: 'quantity'
+                },
+                {
+                    data: 'amount',
+                    name: 'amount'
+                },
+                {
+                    data: 'user.name',
+                    name: 'user.name'
+                },
+                {
+                    data: 'created_at',
+                    name: 'created_at'
+                },
+                {
+                    data: 'actions',
+                    name: 'actions',
+                    orderable: false,
+                    searchable: false
+                }
+            ]
+        });
+
+        // Add column-specific search
+        $('.filter-input').on('keyup change', function() {
+            var column = $(this).data('column'); // Get column index
+            table.column(column).search(this.value).draw(); // Apply search
+        });
+
+        // AJAX to update sale status
+        $(document).on('change', '.status-select', function() {
+            var saleId = $(this).data('id');
+            var status = $(this).val();
+            var url = "{{ route('sales.changeStatus', ':id') }}".replace(':id', saleId);
+
+            $.ajax({
+                url: url,
+                type: 'PUT',
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    status: status
+                },
+                success: function(response) {
+                    alert('Status updated successfully!');
+                },
+                error: function(xhr) {
+                    alert('Error updating status.');
+                }
+            });
+        });
+    });
+</script>
 @endsection

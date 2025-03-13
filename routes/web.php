@@ -87,6 +87,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/record-sale', [RecordSalesController::class, 'store'])->name('sales.store');
         Route::get('/sales/print', [ManageSalesController::class, 'print'])->name('sales.print');
         Route::put('/sales/{id}/change-status', [ManageSalesController::class, 'changeStatus'])->name('sales.changeStatus');
+        Route::get('/sales/data', [ManageSalesController::class, 'index'])->name('sales.data');
     });
 
     require_once 'profile.php';
