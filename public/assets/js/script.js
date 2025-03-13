@@ -1,6 +1,17 @@
 // Select Gallery Row
 const galleryRow = document.getElementById("gallery-row");
 
+// Function to Clear Cache and Reload Page (Forcing New Styles)
+function clearCacheAndReload() {
+    if (localStorage.getItem("cacheCleared") !== "true") {
+        localStorage.setItem("cacheCleared", "true");
+        location.reload(true); // Force reload without cache
+    }
+}
+
+// Run Cache Clearing Function on Load
+clearCacheAndReload();
+
 // Fullscreen Image Container
 const fullscreenContainer = document.createElement("div");
 fullscreenContainer.classList.add("fullscreen-img");
@@ -21,7 +32,6 @@ const imageSets = [
         { src: "assets/images/p50.jpg", alt: "Gallery Image 7" },
         { src: "assets/images/stud.webp", alt: "Gallery Image 8" },
     ],
-    
 ];
 
 let currentSet = 0; // Index of the current image set
@@ -32,7 +42,6 @@ function loadImages(index) {
     showLoader(); // Show loader before loading images
 
     const selectedSet = imageSets[index];
-    let imagesLoaded = 0;
     galleryRow.innerHTML = ""; // Clear existing images
 
     selectedSet.forEach((imgData) => {
