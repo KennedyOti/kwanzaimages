@@ -89,7 +89,7 @@
                         </li>
                         @switch(Auth::user()->role)
                         @case('admin')
-                        <li class="nav-item"><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> Manage Users</a></li>
+                        <li class="nav-item"><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> User Management</a></li>
                         <li class="nav-item"><a href="{{ route('teams.index') }}"><i class="fas fa-handshake"></i> Manage Teams</a></li>
                         <li class="nav-item"><a href="{{ route('gallery.index') }}"><i class="fas fa-images"></i> Manage Gallery</a></li>
                         <li class="nav-item"><a href="{{ route('services.index') }}"><i class="fas fa-tools"></i> Manage Services</a></li>
@@ -117,7 +117,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand text-white fw-bold" href="{{ route('dashboard') }}">Kwanza Admin</a>
+                    <a class="navbar-brand text-white fw-bold" href="{{ route('dashboard') }}">Kwanza  Admin</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
