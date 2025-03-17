@@ -38,6 +38,7 @@
 
         .nav-item a {
             color: white;
+            transition: background 0.3s ease-in-out;
             padding: 10px 15px;
             display: block;
         }
@@ -50,24 +51,91 @@
         /* Navbar */
         .navbar {
             background: #004aad !important;
-            padding-left: 260px;
+            padding-left: 260px; /* Adjust for sidebar width */
+        }
+
+        /* Dropdown Styling */
+        .dropdown-menu {
+            background: #003366;
+            border-radius: 8px;
+        }
+
+        .dropdown-menu a {
+            color: white !important;
+            transition: background 0.3s ease-in-out;
+        }
+
+        .dropdown-menu a:hover {
+            background: #004aad;
+            border-radius: 5px;
+        }
+
+        /* Ensure form inputs retain values properly */
+        input,
+        textarea,
+        select {
+            background: white !important;
+            color: black !important;
+            transition: none !important;
+            box-shadow: none !important;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            background: white !important;
+            color: black !important;
+            border-color: #004aad !important;
+            outline: none !important;
         }
 
         /* Responsive Fix */
         @media (max-width: 992px) {
             .main-sidebar {
-                display: none;
+                left: 0; /* Always visible on smaller screens */
             }
 
             .navbar {
-                padding-left: 15px;
+                padding-left: 15px; /* Reset padding for navbar */
             }
+
+            .sidebar-toggle {
+                display: block; /* Show toggle button */
+            }
+
+            .main-sidebar.active {
+                left: 0; /* Show sidebar when active */
+            }
+
+            .main-panel {
+                margin-left: 250px; /* Adjust main content */
+            }
+        }
+
+        /* Sidebar Toggle Button */
+        .sidebar-toggle {
+            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1001;
+            background: #004aad;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
+        <!-- Sidebar Toggle Button -->
+        <button class="sidebar-toggle" onclick="toggleSidebar()">
+            <i class="fas fa-bars"></i>
+        </button>
+
         <!-- Sidebar -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <div class="sidebar">
@@ -77,19 +145,21 @@
                     </a>
                 </div>
                 <div class="sidebar-wrapper scrollbar scrollbar-inner">
-                    <ul class="nav nav-secondary" id="sidebarMenu">
+                    <ul class="nav nav-secondary">
                         <li class="nav-item active">
                             <a href="{{ route('dashboard') }}">
                                 <i class="fas fa-home"></i>
                                 <p>{{ ucwords(Auth::user()->role . ' Dashboard') }}</p>
                             </a>
                         </li>
+
                         <li class="nav-section">
                             <h4 class="text-section">Features</h4>
                         </li>
+
                         @switch(Auth::user()->role)
                         @case('admin')
-                        <li class="nav-item"><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> User Management</a></li>
+                        <li class="nav-item"><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> Manage Users</a></li>
                         <li class="nav-item"><a href="{{ route('teams.index') }}"><i class="fas fa-handshake"></i> Manage Teams</a></li>
                         <li class="nav-item"><a href="{{ route('gallery.index') }}"><i class="fas fa-images"></i> Manage Gallery</a></li>
                         <li class="nav-item"><a href="{{ route('services.index') }}"><i class="fas fa-tools"></i> Manage Services</a></li>
@@ -117,12 +187,34 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-                    <a class="navbar-brand text-white fw-bold" href="{{ route('dashboard') }}">Kwanza  Admin</a>
+                    <a class="navbar-brand text-white fw-bold" href="{{ route('dashboard') }}">Kwanza Admin</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                         <span class="navbar-toggler-icon"></span>
                     </button>
+
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul class="navbar-nav" id="mobileMenu"></ul>
+                        <ul class="navbar-nav">
+                            <!-- Profile Dropdown -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user-circle"></i> {{ Auth::user()->name }}
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li><a class="dropdown-item" href="#">View Profile</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="fas fa-sign-out-alt"></i> Logout
+                                        </a>
+                                    </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </nav>
@@ -137,11 +229,11 @@
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (window.innerWidth <= 992) {
-                document.getElementById("mobileMenu").innerHTML = document.getElementById("sidebarMenu").innerHTML;
-            }
-        });
+        // Toggle sidebar on smaller screens
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.main-sidebar');
+            sidebar.classList.toggle('active');
+        }
     </script>
 </body>
 
