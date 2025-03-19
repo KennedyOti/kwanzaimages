@@ -51,7 +51,8 @@
         /* Navbar */
         .navbar {
             background: #004aad !important;
-            padding-left: 260px; /* Adjust for sidebar width */
+            padding-left: 260px;
+            /* Adjust for sidebar width */
         }
 
         /* Dropdown Styling */
@@ -92,23 +93,28 @@
         /* Responsive Fix */
         @media (max-width: 992px) {
             .main-sidebar {
-                left: 0; /* Always visible on smaller screens */
+                left: 0;
+                /* Always visible on smaller screens */
             }
 
             .navbar {
-                padding-left: 15px; /* Reset padding for navbar */
+                padding-left: 15px;
+                /* Reset padding for navbar */
             }
 
             .sidebar-toggle {
-                display: block; /* Show toggle button */
+                display: block;
+                /* Show toggle button */
             }
 
             .main-sidebar.active {
-                left: 0; /* Show sidebar when active */
+                left: 0;
+                /* Show sidebar when active */
             }
 
             .main-panel {
-                margin-left: 250px; /* Adjust main content */
+                margin-left: 250px;
+                /* Adjust main content */
             }
         }
 
@@ -204,6 +210,30 @@
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
+                                    <li class="nav-section">
+                                        <h4 class="text-section">Features</h4>
+                                    </li>
+
+                                    @switch(Auth::user()->role)
+                                    @case('admin')
+                                    <li class="nav-item"><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> Manage Users</a></li>
+                                    <li class="nav-item"><a href="{{ route('teams.index') }}"><i class="fas fa-handshake"></i> Manage Teams</a></li>
+                                    <li class="nav-item"><a href="{{ route('gallery.index') }}"><i class="fas fa-images"></i> Manage Gallery</a></li>
+                                    <li class="nav-item"><a href="{{ route('services.index') }}"><i class="fas fa-tools"></i> Manage Services</a></li>
+                                    <li class="nav-item"><a href="{{ route('managebookings.index') }}"><i class="fas fa-calendar-check"></i> Manage Bookings</a></li>
+                                    <li class="nav-item"><a href="{{ route('manageblog.index') }}"><i class="fas fa-blog"></i> Manage Blogs</a></li>
+                                    <li class="nav-item"><a href="{{ route('branches.index') }}"><i class="fas fa-map-marker-alt"></i> Manage Branches</a></li>
+                                    <li class="nav-item"><a href="{{ route('sales.create') }}"><i class="fas fa-shopping-cart"></i> Record Sales</a></li>
+                                    <li class="nav-item"><a href="{{ route('sales.index') }}"><i class="fas fa-chart-bar"></i> Manage Sales</a></li>
+                                    @break
+                                    @case('employee')
+                                    <li class="nav-item"><a href="{{ route('sales.create') }}"><i class="fas fa-shopping-cart"></i> Record Sales</a></li>
+                                    <li class="nav-item"><a href="{{ route('manageblog.index') }}"><i class="fas fa-blog"></i> Manage Blogs</a></li>
+                                    <li class="nav-item"><a href="{{ route('gallery.index') }}"><i class="fas fa-images"></i> Manage Gallery</a></li>
+                                    <li class="nav-item"><a href="{{ route('managebookings.index') }}"><i class="fas fa-calendar-check"></i> Manage Bookings</a></li>
+                                    @break
+                                    @case('user')
+                                    @endswitch
                                     <li>
                                         <a class="dropdown-item text-danger" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             <i class="fas fa-sign-out-alt"></i> Logout

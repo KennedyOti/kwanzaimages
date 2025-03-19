@@ -84,7 +84,7 @@
                         <a class="nav-link" href="{{ route('blogs.index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
+                        <a class="nav-link" href="{{ route('gallerypage') }}">Gallery</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#services">Services</a>

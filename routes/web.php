@@ -13,9 +13,11 @@ use App\Http\Controllers\ManageBlogController;
 use App\Http\Controllers\ManageBookingsController;
 use App\Http\Controllers\ManageSalesController;  // Import ManageSalesController
 use App\Http\Controllers\RecordSalesController;  // Import RecordSalesController
+use App\Http\Controllers\GalleryPageController;  // Import GalleryPageController
 
 // Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/gallerypage', [GalleryPageController::class, 'index'])->name('gallerypage');
 // Booking Route
 Route::post('/book-session', [HomeController::class, 'bookSession'])->name('book.session');
 // Blog Routes for displaying public blogs

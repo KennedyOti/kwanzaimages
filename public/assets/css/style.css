@@ -328,13 +328,11 @@ body {
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: justify;
+
     font-size: 1.1rem;
-    color: #333;
     line-height: 1.8;
-    word-spacing: 1.5px; /* More natural spacing */
-    letter-spacing: 0.4px; /* Slightly improves readability */
-    text-justify: inter-word;
+    margin-bottom: 20px;
+
 }
 
 /* Button Customization */
